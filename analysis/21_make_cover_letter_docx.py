@@ -64,7 +64,7 @@ def heading(text):
 
 
 # Letter body
-para("[Date]", space_after=12)
+para("October 18, 2026", space_after=12)
 para("Dear Editor,", space_after=12)
 
 heading("Re: Submission of a research manuscript to Critical Care")
@@ -72,7 +72,7 @@ heading("Re: Submission of a research manuscript to Critical Care")
 para("**Title:** Early versus Late Enteral Nutrition and Infectious Complications after Major "
      "Abdominal Surgery in the Intensive Care Unit: A Target Trial Emulation Using MIMIC-IV")
 para("**Article type:** Research")
-para("**Corresponding author:** [ ]", space_after=12)
+para("**Corresponding author:** Yehong Han, jianghao-163@163.com", space_after=12)
 
 para("We are pleased to submit the above manuscript for consideration for publication in "
      "*Critical Care*.", align="justify")
@@ -108,25 +108,22 @@ para("**Reporting standards.** The study is reported in accordance with the STRO
 para("**Ethics.** The study used publicly available, de-identified data (MIMIC-IV, MIMIC-III, "
      "eICU-CRD) under credentialed PhysioNet data-use agreements; informed consent was waived by "
      "the respective institutional review boards.", align="justify")
-para("**Competing interests.** [ ]", align="justify")
-para("**Funding.** [ ]", align="justify")
+para("**Competing interests.** The authors declare that they have no competing interests.", align="justify")
+para("**Funding.** No funding.", align="justify")
 para("**Data availability.** The clinical databases are available from PhysioNet subject to "
      "credentialed data-use agreements; analysis code is public on GitHub and archived on Zenodo "
      "(https://doi.org/10.5281/zenodo.23446232).", align="justify")
 
-heading("Suggested reviewers")
-para("[ ]", align="justify")
-
 heading("ORCID")
-para("[ ]", align="justify")
+para("Peiwu Jiang: 0000-0002-5262-3424", align="justify")
 
 para("Thank you for considering our manuscript. We look forward to your response.", align="justify")
 
 para("Yours sincerely,", space_after=4)
-para("[ ] (on behalf of all authors)")
+para("Yehong Han (on behalf of all authors)")
 para("Corresponding author")
-para("[Affiliation]")
-para("[Email address]")
+para("Department of General Surgery, Hangzhou TCM Hospital Affiliated to Zhejiang Chinese Medical University, Hangzhou, Zhejiang, China.")
+para("jianghao-163@163.com")
 
 doc.save(OUT)
 print(f"Saved {OUT}")

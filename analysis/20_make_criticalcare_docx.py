@@ -205,9 +205,13 @@ para("Early versus Late Enteral Nutrition and Infectious Complications after "
 para("**Short running title.** Early enteral nutrition after abdominal surgery",
      align="center", space_after=18)
 
-para("**Authors.** [ ]", space_after=6)
-para("**Affiliations.** [ ]", space_after=6)
-para("**Corresponding author.** [ ]", space_after=6)
+para("**Authors.** Peiwu Jiang¹†, Yao Xu²†, Yantao Zhang¹, Yehong Han¹", space_after=6)
+para("**Affiliations.** ¹ Department of General Surgery, Hangzhou TCM Hospital Affiliated "
+     "to Zhejiang Chinese Medical University, Hangzhou, Zhejiang, China. ² Department of "
+     "Endocrinology, The 903rd Hospital of the Joint Logistic Support Force, Hangzhou, "
+     "Zhejiang, China.", space_after=6)
+para("†These authors contributed equally to this work.", space_after=6)
+para("**Corresponding author.** Yehong Han, jianghao-163@163.com", space_after=6)
 wc_para = para("**Word count.** Abstract: [ ] words; main text: [ ] words.", space_after=6)
 
 page_break()
@@ -330,7 +334,7 @@ body("We used a 48-h landmark design to avoid immortal-time (guarantee-time) bia
 h2("2.2 Data source")
 body("MIMIC-IV v3.1 [15] is a single-center database of de-identified electronic health records "
      "for patients admitted to Beth Israel Deaconess Medical Center, Boston, USA. Use was "
-     "approved under the PhysioNet data-use agreement (certificate number [ ]). Analyses were "
+     "approved under the PhysioNet data-use agreement. Analyses were "
      "performed with Python (duckdb, pandas, statsmodels).")
 
 h2("2.3 Cohort")
@@ -758,7 +762,7 @@ para("**Ethics approval and consent to participate.** This study used publicly a
      "Massachusetts Institute of Technology (for the MIMIC databases) and of Philips Healthcare / "
      "the Massachusetts Institute of Technology (for eICU-CRD); these databases received "
      "institutional ethics approval for secondary research use under certified data-use "
-     "agreements with PhysioNet (certificate number [ ]).", align="justify", space_after=4)
+     "agreements with PhysioNet.", align="justify", space_after=4)
 para("**Consent for publication.** Not applicable.", align="justify", space_after=4)
 para("**Availability of data and materials.** The datasets analyzed in the current study are "
      "available from the PhysioNet repository, but restrictions apply to their availability: "
@@ -772,9 +776,9 @@ para("**Availability of data and materials.** The datasets analyzed in the curre
      "(https://doi.org/10.5281/zenodo.23446232). The study protocol and analysis plan are "
      "registered at the Open Science Framework (https://osf.io/g39vw; DOI 10.17605/OSF.IO/G39VW).",
      align="justify", space_after=4)
-para("**Competing interests.** [ ]", align="justify", space_after=4)
-para("**Funding.** [ ]", align="justify", space_after=4)
-para("**Authors' contributions.** [ ]", align="justify", space_after=4)
+para("**Competing interests.** The authors declare that they have no competing interests.", align="justify", space_after=4)
+para("**Funding.** No funding.", align="justify", space_after=4)
+para("**Authors' contributions.** Peiwu Jiang and Yehong Han conceived and designed the study. Peiwu Jiang performed the data analysis and drafted the manuscript. Yao Xu and Yantao Zhang contributed to data interpretation and critically revised the manuscript. Yehong Han supervised the work. All authors read and approved the final manuscript.", align="justify", space_after=4)
 para("**Acknowledgements.** Not applicable.", align="justify", space_after=4)
 
 # ============================================================================

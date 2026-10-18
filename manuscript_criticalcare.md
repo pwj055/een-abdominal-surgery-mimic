@@ -2,11 +2,13 @@
 
 **Short running title.** Early enteral nutrition after abdominal surgery
 
-**Authors.** [ ]
+**Authors.** Peiwu Jiang¹†, Yao Xu²†, Yantao Zhang¹, Yehong Han¹
 
-**Affiliations.** [ ]
+**Affiliations.** ¹ Department of General Surgery, Hangzhou TCM Hospital Affiliated to Zhejiang Chinese Medical University, Hangzhou, Zhejiang, China. ² Department of Endocrinology, The 903rd Hospital of the Joint Logistic Support Force, Hangzhou, Zhejiang, China.
 
-**Corresponding author.** [ ]
+†These authors contributed equally to this work.
+
+**Corresponding author.** Yehong Han, jianghao-163@163.com
 
 ---
 
@@ -54,7 +56,7 @@ We used a 48-h landmark design to avoid immortal-time (guarantee-time) bias [13]
 
 ### 2.2 Data source
 
-MIMIC-IV v3.1 [15] is a single-center database of de-identified electronic health records for patients admitted to Beth Israel Deaconess Medical Center, Boston, USA. Use was approved under the PhysioNet data-use agreement (certificate number [ ]). Analyses were performed with Python (duckdb, pandas, statsmodels).
+MIMIC-IV v3.1 [15] is a single-center database of de-identified electronic health records for patients admitted to Beth Israel Deaconess Medical Center, Boston, USA. Use was approved under the PhysioNet data-use agreement. Analyses were performed with Python (duckdb, pandas, statsmodels).
 
 ### 2.3 Cohort
 
@@ -185,7 +187,7 @@ Earlier enteral nutrition after major abdominal surgery was associated with fewe
 
 ### Ethics approval and consent to participate
 
-This study used publicly available, de-identified data (MIMIC-IV, MIMIC-III, eICU-CRD). Individual informed consent was waived by the Institutional Review Boards of Beth Israel Deaconess Medical Center and the Massachusetts Institute of Technology (for the MIMIC databases) and of Philips Healthcare / the Massachusetts Institute of Technology (for eICU-CRD); these databases received institutional ethics approval for secondary research use under certified data-use agreements with PhysioNet (certificate number [ ]).
+This study used publicly available, de-identified data (MIMIC-IV, MIMIC-III, eICU-CRD). Individual informed consent was waived by the Institutional Review Boards of Beth Israel Deaconess Medical Center and the Massachusetts Institute of Technology (for the MIMIC databases) and of Philips Healthcare / the Massachusetts Institute of Technology (for eICU-CRD); these databases received institutional ethics approval for secondary research use under certified data-use agreements with PhysioNet.
 
 ### Consent for publication
 
@@ -197,15 +199,15 @@ The datasets analyzed in the current study are available from the PhysioNet repo
 
 ### Competing interests
 
-[ ]
+The authors declare that they have no competing interests.
 
 ### Funding
 
-[ ]
+No funding.
 
 ### Authors' contributions
 
-[ ]
+Peiwu Jiang and Yehong Han conceived and designed the study. Peiwu Jiang performed the data analysis and drafted the manuscript. Yao Xu and Yantao Zhang contributed to data interpretation and critically revised the manuscript. Yehong Han supervised the work. All authors read and approved the final manuscript.
 
 ### Acknowledgements
 

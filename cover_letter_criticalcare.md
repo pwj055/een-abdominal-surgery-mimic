@@ -1,4 +1,4 @@
-[Date]
+October 18, 2026
 
 Dear Editor,
 
@@ -8,7 +8,7 @@ Dear Editor,
 
 **Article type:** Research
 
-**Corresponding author:** [ ]
+**Corresponding author:** Yehong Han, jianghao-163@163.com
 
 We are pleased to submit the above manuscript for consideration for publication in *Critical Care*.
 
@@ -23,24 +23,20 @@ We believe the methodological approach — separating principal-stratum and poli
 - **Originality and exclusivity:** The manuscript is original, has not been published previously, is not under consideration by another journal, and will not be submitted elsewhere while under review at *Critical Care*. All authors have read and approved the manuscript, agree to its submission, and meet the ICMJE criteria for authorship.
 - **Reporting standards:** The study is reported in accordance with the STROBE statement and its RECORD extension; completed checklists are provided as Additional Files 1 and 2. The study protocol and analysis plan were time-stamped and registered at the Open Science Framework (https://osf.io/g39vw; DOI 10.17605/OSF.IO/G39VW) before outcome modeling.
 - **Ethics:** The study used publicly available, de-identified data (MIMIC-IV, MIMIC-III, eICU-CRD) under credentialed PhysioNet data-use agreements; informed consent was waived by the respective institutional review boards.
-- **Competing interests:** [ ].
-- **Funding:** [ ].
+- **Competing interests:** The authors declare that they have no competing interests.
+- **Funding:** No funding.
 - **Data availability:** The clinical databases are available from PhysioNet subject to credentialed data-use agreements; analysis code is public on GitHub and archived on Zenodo (https://doi.org/10.5281/zenodo.23446232).
-
-## Suggested reviewers
-
-[ ]
 
 ## ORCID
 
-[ ]
+Peiwu Jiang: 0000-0002-5262-3424
 
 Thank you for considering our manuscript. We look forward to your response.
 
 Yours sincerely,
 
-[ ] (on behalf of all authors)
+Yehong Han (on behalf of all authors)
 Corresponding author
 
-[Affiliation]
-[Email address]
+Department of General Surgery, Hangzhou TCM Hospital Affiliated to Zhejiang Chinese Medical University, Hangzhou, Zhejiang, China.
+jianghao-163@163.com
