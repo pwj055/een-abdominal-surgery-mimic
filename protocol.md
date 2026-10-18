@@ -190,7 +190,7 @@
 - **分析队列**：1658（EEN 192 / late 346 / never 1120）。§11 的 347/1123 为四舍五入，正式数为 192/346/1120。
 - **感染复合（landmarked）**：EEN 54 / late 171 / never 168；**treated BSI**：8 / 26 / 46（不变）。
 - **漏/再探查（收紧版，landmarked）**：定义改为「索引大手术后 3–14 天的探查性再剖腹 `541`/`0WJG`，剔除粘连松解 `545`」→ 全队列 84（2.6%），landmarked **53**（EEN 2 / late 30 / never 21）。§11 的 69 为可行性粗版（rn=2 定义），正式流水线用更严谨的「索引后 3–14d 探查」定义。
-- **never 拆解**：died 463（41.3%）/ 治疗性 NPO 146（13.0%）/ 经口恢复 511（45.6%）。
+- **never 拆解**：died 127（11.3%）/ 治疗性 NPO 211（18.8%）/ 经口恢复 782（69.8%）。
 - **112 个喂养 itemid** 已固化至 `analysis/feeding_itemids.csv`。
 
 **主估计（OW 主，双 co-primary × 感染复合；全 SOFA 主协变量集）：**
@@ -290,11 +290,11 @@
 - **Fig 6 阈值剂量-反应梯度**（`fig6_threshold_gradient.png`）：24/48/72h OW OR（对数刻度）点+误差棒；A 单调梯度 0.88→0.60→0.49，B 72h 衰减至 1.04——Hill 生物学梯度证据。
 - **Fig 7 estimand 示意图**（`fig7_estimand.png`）：A 限定 eventually-fed 子集（timing），B 用全 landmarked 队列（policy）。
 - **补充图 S1**（`supp1_feeding_time.png`）：首次喂养时间分布（EEN≤48h vs late>48h），标 24/48/72h。
-- **补充图 S2**（`supp2_never_fed.png`）：never 组拆解（死亡 463 / NPO 146 / 口服恢复 511）。
+- **补充图 S2**（`supp2_never_fed.png`）：never 组拆解（死亡 127 / NPO 211 / 口服恢复 782）。
 - **补充图 S3**（`supp3_composite_sites.png`）：复合终点按培养部位拆解（blood/abdo/resp/wound，A、B 各一）。实测呼吸培养主导（EEN 41/54 事件），blood 计数 8 = treated BSI 8，交叉验证正确。
 - **补充图 S4**（`supp4_infection_cif.png`）：感染复合终点的累积发生率曲线（Aalen–Johansen，出院/住院死亡为竞争风险，28 天）。28 天 CIF：EEN **28.1%** / late **49.4%** / never **15.0%**——与粗感染率（54/192、171/346、168/1120）一致，交叉验证通过。
 
-**同时修正旧图硬编码漂移**：`09_figures.py` 的 Fig 1/2 仍为 landmark-fix 前数值（Fig1: 1663/193/1124/467；Fig2: 阈值 0.86/0.45、缺 strict-treated 行等），已全部校正为当前 pipeline 数值（Fig1: 1658/192/1120/463；Fig2: 阈值 0.88/0.49、新增 §8.6b/c strict-treated 两行）。
+**同时修正旧图硬编码漂移**：`09_figures.py` 的 Fig 1/2 仍为 landmark-fix 前数值（Fig1: 1663/193/1124/467；Fig2: 阈值 0.86/0.45、缺 strict-treated 行等），已全部校正为当前 pipeline 数值（Fig1: 1658/192/1120/127；Fig2: 阈值 0.88/0.49、新增 §8.6b/c strict-treated 两行）。
 
 ### 12.8 因果硬核项：阴性对照 + 双重稳健 AIPW + 缺失数据（2026-10-18 跑出，`13_causal_hardening.py`）
 

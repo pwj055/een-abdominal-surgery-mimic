@@ -56,7 +56,7 @@ def fig1():
     arrow(6.4, 4.55, 8.4, 3.55)
 
     box(5.7, 0.5, 4.0, 1.5,
-        "Never-fed dissection\ndied 463 (41.3%)\ntherapeutic NPO 146 (13.0%)\noral recovery 511 (45.6%)",
+        "Never-fed dissection\ndied 127 (11.3%)\ntherapeutic NPO 211 (18.8%)\noral recovery 782 (69.8%)",
         fc="#ffffff", fs=9)
     arrow(8.4, 2.55, 7.7, 2.05)
 

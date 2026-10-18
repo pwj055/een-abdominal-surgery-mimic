@@ -314,8 +314,8 @@ body("We identified first surgical-ICU stays (SICU, Trauma SICU, MICU/SICU, Neur
      "feeding window without immortal-time bias, and we additionally required survival to 48 h "
      "(patients whose hospital death time preceded the landmark were excluded). We excluded "
      "patients with a prior surgical-ICU stay. The never-fed subgroup was described in three "
-     "mutually exclusive categories — hospital death (admissions death time or the patient's "
-     "recorded date of death), therapeutic nil-per-os with ileus/obstruction (ICD-9 `560` / "
+     "mutually exclusive categories — in-hospital death (death time recorded in the indexed"
+     "hospital admission), therapeutic nil-per-os with ileus/obstruction (ICD-9 `560` /"
      "ICD-10 `K56`), and presumptive oral recovery (the remainder).")
 
 h2("2.4 Exposure")
@@ -411,8 +411,8 @@ body("Of 3246 eligible patients, 1658 (51.1%) survived and remained in the ICU a
      "formed the landmarked cohort (Figure 1). Within 48 h, 117 (3.6%) died and 1471 (45.3%) "
      "were discharged from the ICU alive. Among the landmarked cohort, 192 (11.6%) were EEN, 346 "
      "(20.9%) late EN, and 1120 (67.6%) never fed.")
-body("The never-fed group was markedly heterogeneous (Supplement): 463 (41.3%) died during "
-     "hospitalization, 146 (13.0%) had ileus/obstruction (therapeutic NPO), and 511 (45.6%) were "
+body("The never-fed group was markedly heterogeneous (Supplement): 127 (11.3%) died during"
+     "hospitalization, 211 (18.8%) had ileus/obstruction (therapeutic NPO), and 782 (69.8%) were"
      "classified as presumptive oral recovery.")
 
 h2("3.2 Baseline characteristics")
@@ -551,7 +551,7 @@ body("In this target-trial emulation of early versus late enteral nutrition afte
      "reflect differential short-course antibiotic use rather than a large true treatment "
      "effect. By contrast, the full-cohort policy comparison showed no infection benefit and an "
      "apparent increase in mortality, which we interpret as confounding rather than harm: the "
-     "never-fed subgroup is bimodal, containing both patients who recover quickly and resume "
+     "never-fed subgroup is heterogeneous, containing both patients who recover quickly and resume"
      "oral intake and patients who die or require therapeutic NPO, and the \"harm\" signal was "
      "abolished by restricting the analysis to the region of covariate overlap. A negative-control "
      "outcome (treated urinary-tract infection, which early feeding cannot plausibly affect) "

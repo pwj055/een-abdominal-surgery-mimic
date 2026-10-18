@@ -71,8 +71,8 @@ the supplement.
   — not a 48h artifact. B's "harm" is maximal at 24h and vanishes by 72h (death OW
   2.54 → 1.69 → 1.17; infection 1.76 → 1.34 → 1.04) — the signature of never-group
   confounding. See `threshold_sensitivity.md`.
-- **Never group** is bimodal: died 41.3% / therapeutic NPO 13.0% / oral recovery
-  45.6%.
+- **Never group** is heterogeneous: died 11.3% / therapeutic NPO 18.8% / oral
+  recovery 69.8%.
 - **Balance**: OW achieves exact covariate balance (max |SMD| 0.000); IPTW max
   |SMD| 0.087 (A) / 0.149 (B) — the latter motivates the PS-trimming sensitivity.
 - **Full-SOFA covariates** (GCS/MAP/FiO2/PaO2/BMI) are now the primary covariate set
@@ -125,7 +125,7 @@ the supplement.
   BSI 8), S4 (infection CIF: EEN 28.1% / late 49.4% / never 15.0%, matching the
   crude composite proportions). Both scripts were regenerated after correcting
   stale pre-landmark-fix numbers in Fig 1/2 (landmarked 1663→1658, EEN 193→192,
-  never 1124→1120, never-died 467→463; threshold 0.86/0.45→0.88/0.49).
+  never 1124→1120, never-died 467→127; threshold 0.86/0.45→0.88/0.49).
 - **Negative control + AIPW + missing data (`13_causal_hardening.py`, 2026-10-18)**: the
   treated-urinary-tract-infection negative control (same definition as the primary
   composite but urine-only) passes the falsification check — in comparison A its crude

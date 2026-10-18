@@ -238,15 +238,15 @@ def supp1():
 # ---- Supp Fig S2: never-fed dissection ----
 def supp2():
     cats = ["Died", "Therapeutic NPO\n(ileus)", "Oral recovery"]
-    counts = [463, 146, 511]
-    pcts = [41.3, 13.0, 45.6]
+    counts = [127, 211, 782]
+    pcts = [11.3, 18.8, 69.8]
     fig, ax = plt.subplots(figsize=(6, 4.2))
     bars = ax.bar(cats, counts, color=[RED, "#fff2cc", "#7fbf7f"], width=0.62)
     for bar, n, p in zip(bars, counts, pcts):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 8,
                 f"n = {n} ({p}%)", ha="center", fontsize=10)
     ax.set_ylabel("Number of patients")
-    ax.set_ylim(0, 560)
+    ax.set_ylim(0, 850)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_title("Never-fed group dissection (n = 1120)", fontsize=11, weight="bold")
     fig.tight_layout()

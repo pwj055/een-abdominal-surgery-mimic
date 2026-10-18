@@ -30,9 +30,9 @@ n: EEN 192 / late 346 / never 1120 (total 1658)
 
 | Subgroup | n | % |
 |---|---|---|
-| died | 463 | 41.3 |
-| ileus/obstruction (therapeutic NPO) | 146 | 13.0 |
-| other (presumptive oral recovery) | 511 | 45.6 |
+| died | 127 | 11.3 |
+| ileus/obstruction (therapeutic NPO) | 211 | 18.8 |
+| other (presumptive oral recovery) | 782 | 69.8 |
 
 
 ## Flow diagram (locked feasibility numbers)

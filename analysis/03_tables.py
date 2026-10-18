@@ -2,7 +2,7 @@
 """
 03_tables.py — Table 1 (baseline by exposure group) + never-group 3-way dissection
 + flow-diagram numbers. Reads analysis/cohort.csv; joins patients/diagnoses_icd for
-the never dissection (dod + ileus). Outputs analysis/table1.md + table1.csv.
+the never dissection (in-hospital death + ileus). Outputs analysis/table1.md + table1.csv.
 """
 import os
 import numpy as np
@@ -110,13 +110,12 @@ WITH dx AS (
   LEFT JOIN read_csv_auto('{M}/hosp/diagnoses_icd.csv.gz') d ON d.hadm_id = n.hadm_id
   GROUP BY n.hadm_id, n.subject_id, n.hosp_death
 )
-SELECT dx.hadm_id, dx.hosp_death, dx.ileus,
-       (p.dod IS NOT NULL) AS dod_death
-FROM dx LEFT JOIN read_csv_auto('{M}/hosp/patients.csv.gz') p ON p.subject_id = dx.subject_id
+SELECT dx.hadm_id, dx.hosp_death, dx.ileus
+FROM dx
 """).df()
 con.close()
 
-nd["died"] = ((nd["hosp_death"] == 1) | nd["dod_death"]).astype(int)
+nd["died"] = nd["hosp_death"].astype(int)
 nd["subgroup"] = np.where(nd["died"] == 1, "died",
                  np.where(nd["ileus"] == 1, "ileus/obstruction (therapeutic NPO)",
                           "other (presumptive oral recovery)"))
