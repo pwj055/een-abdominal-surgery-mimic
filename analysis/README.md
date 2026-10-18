@@ -21,6 +21,7 @@ previous stage's output. All scripts live here; raw data stays in `../mimic-iv/`
 | `15_eicu_replication.py` | Supportive multicenter (eICU-CRD v2.0, D:\eicu): APACHE "surgery for" cohort, intakeOutput enteral classifier, 48-h landmark, death/LOS/ventilation descriptive + OW death. **Not a validation** (microLab too sparse, no procedure table). | `eicu_cohort.csv`, `eicu_replication.md` |
 | `16_replication_forest.py` | Replication forest plot: MIMIC-IV vs MIMIC-III, infection composite + treated-UTI negative control, crude + OW. | `figures/fig8_replication_forest.png` |
 | `17_reviewer_sensitivity.py` | Reviewer B-tier sensitivities: post-48h reverse-causation (72-h outcome window) and missingness-indicator (all >10%-missing covariates). | `reviewer_sensitivity.md` |
+| `18_mice_sensitivity.py` | Multiple imputation by chained equations (m=25, 15 iter) for the five >10%-missing covariates; PS/OW/IPTW/AIPW refit per dataset, pooled by Rubin's rules. | `mice_sensitivity.md` |
 
 Supporting: `feeding_itemids.csv` = the 112 enteral-nutrition itemids
 (`d_items.linksto='inputevents' AND category='Nutrition - Enteral'`), frozen for
@@ -163,6 +164,12 @@ the supplement.
   pure artifact of 48–72-h infections. (B10) missingness indicators for every >10%-missing
   covariate barely move comparison A (OW OR 0.63 [0.41–0.98]) or B (OW 1.41 [0.97–2.05]).
   See `reviewer_sensitivity.md`.
+- **Multiple imputation (`18_mice_sensitivity.py`, 2026-10-18)**: chained-equations (norm)
+  imputation of the five >10%-missing covariates (bilirubin, BMI, FiO₂, lactate, PaO₂), m=25
+  datasets × 15 iterations, exposure and outcome in the imputation model, PS/OW/IPTW/AIPW
+  refit per dataset and pooled by Rubin's rules. Pooled OW OR: comparison A 0.59 [0.38–0.92],
+  comparison B 1.34 [0.91–1.95] — preserving the protective direction in A and the null in B.
+  See `mice_sensitivity.md`.
 
 ## Re-run
 

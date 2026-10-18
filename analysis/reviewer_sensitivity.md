@@ -1,4 +1,4 @@
-# Reviewer sensitivity analyses (72-h outcome window; missingness indicators)
+# Post hoc sensitivity analyses (72-h outcome window; missingness indicators)
 
 
 ## B9. Post-48h reverse-causation sensitivity (infection composite, 72-h outcome window)

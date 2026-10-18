@@ -307,6 +307,14 @@ body("We prespecified two co-primary comparisons. **Comparison A (timing)** rest
      "ultimately fed*. **Comparison B (policy)** compared EEN with no-EEN-by-48-h in the full "
      "landmarked cohort, a policy (intention-to-treat-like) estimand. The never-fed group was "
      "characterized descriptively but was not treated as a homogeneous comparator.")
+body("We used a landmark design rather than a clone–censor–weight approach because the treatment "
+     "strategies involve a single, well-defined decision window (feeding initiation within versus "
+     "after 48 h) rather than a repeated or sustained treatment decision; landmark designs "
+     "introduce minimal bias relative to clone–censor–weight approaches in this setting [22], at "
+     "the cost of excluding patients who died or were discharged before the landmark (reported "
+     "transparently in Figure 1). We acknowledge clone–censor–weight as a methodologically more "
+     "general alternative that could be explored in future work, particularly if the design were "
+     "extended to multiple or time-varying feeding decisions [23].")
 
 h2("2.2 Data source")
 body("MIMIC-IV v3.1 [8] is a single-center database of de-identified electronic health records "
@@ -374,7 +382,11 @@ body("Covariates were measured in the fixed 0–24 h window after ICU admission 
      "substantial missingness, single median imputation (rather than complete-case analysis) was "
      "used primarily to preserve cohort size and avoid selection; a sensitivity additionally "
      "assigning a missingness indicator to every variable with >10% missingness is reported "
-     "alongside the complete-case results (Supplement Table S9). Missingness was ≤1.1% for age, "
+     "alongside the complete-case results (Supplement Table S9). As a further robustness check, "
+     "the five covariates with >10% missingness (bilirubin, body-mass index, FiO₂, lactate, PaO₂) "
+     "were multiply imputed by chained equations (m=25 imputations, 15 iterations, linear 'norm' "
+     "models, with the exposure and outcome included in the imputation model) and estimates "
+     "pooled across imputations by Rubin's rules (Supplement Table S14). Missingness was ≤1.1% for age, "
      "number of procedures, creatinine, white-cell count, platelets, Glasgow Coma Scale, and mean "
      "arterial pressure, but appreciable for bilirubin (37.5%), body-mass index (33.8%), FiO₂ "
      "(25.8%), lactate (22.6%), and PaO₂ (19.1%); a complete-case sensitivity was therefore "
@@ -414,7 +426,7 @@ body("**Sensitivity analyses** (prespecified): (1) feeding threshold at 24 and 7
      "treated-bloodstream-infection with and without contaminant exclusion; (6) stricter "
      "treated-infection definitions requiring minimum antibiotic courses of 3 and 5 days, to "
      "exclude brief perioperative prophylaxis; (7) overlap trimming to PS ∈ [0.1, 0.9]; (8) "
-     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [14]; (9) a treated-urinary-tract-infection negative-control outcome [18]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; and (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12) and missingness-indicator (13) sensitivities were added in response to peer review."
+     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [14]; (9) a treated-urinary-tract-infection negative-control outcome [18]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness; and (14) a multiple-imputation sensitivity (chained equations, m=25) for the covariates with >10% missingness, pooled by Rubin's rules. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12), missingness-indicator (13), and multiple-imputation (14) sensitivities were added as post hoc analyses after protocol finalization (recorded in the OSF version history)."
      "The 48-h landmark was justified by reporting death/discharge within 48 h.")
 
 h1("3. Results")
@@ -502,7 +514,10 @@ body("As further robustness checks, a post-48-h reverse-causation sensitivity de
      "decision; comparison B remained null under overlap weighting (OR 1.29, 0.88–1.89). A "
      "missingness-indicator sensitivity adding an indicator for every covariate with >10% "
      "missingness left comparison A essentially unchanged (overlap-weighted OR 0.63, 0.41–0.98) "
-     "and comparison B still null (OR 1.41, 0.97–2.05).")
+     "and comparison B still null (OR 1.41, 0.97–2.05). A multiple-imputation sensitivity "
+     "(chained equations, m=25, pooled by Rubin's rules) gave an overlap-weighted OR of 0.59 "
+     "(0.38–0.92) for comparison A and 1.34 (0.91–1.95) for comparison B, preserving the "
+     "protective direction in A and the null in B.")
 
 h2("3.6 Doubly-robust estimation and negative control")
 body("Augmented inverse-probability weighting (AIPW) — consistent if either the "
@@ -595,7 +610,13 @@ body("Comparison A must be read precisely: it is not an intention-to-treat contr
      "pure artifact of this selection. We retained comparison A alongside the policy estimand "
      "(comparison B) because the timing question — should a patient who will be fed be fed early? "
      "— is the question clinicians actually face, and it is precisely the question that a single "
-     "policy comparison cannot isolate.")
+     "policy comparison cannot isolate. Formal bounds for the survivor-average causal effect "
+     "(e.g., Lee bounds [24] or Zhang–Rubin bounds [25]) would require reformulating the "
+     "eventually-fed stratum under a baseline strategy-assignment framework — a substantial "
+     "extension beyond the present landmark design — so we instead argue qualitatively that the "
+     "direction of selection bias from conditioning on eventual feeding would, if anything, bias "
+     "comparison A toward the null, and note formal bounds and a clone–censor–weight "
+     "reformulation as priorities for methodological follow-up work.")
 body("The separation of the two estimands is the central methodological point of this study. A "
      "single \"early versus late\" comparison that ignores the never-fed majority conflates the "
      "timing effect with the population effect and can produce a spurious reversal of direction. "
@@ -741,6 +762,16 @@ REFS = [
     "Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG, Badawi O. The eICU Collaborative "
     "Research Database, a freely available multi-center database for critical care research. "
     "*Sci Data*. 2018;5:180178.",
+    "Giobbie-Hurder A, Gelber RD, Regan MM. Challenges of guarantee-time bias. *J Clin Oncol*. "
+    "2013;31(23):2963–2969.",
+    "Maringe C, Benitez Majano S, Exarchakou A, et al. Reflection on modern methods: trial "
+    "emulation in the presence of immortal-time bias. Assessing the benefit of major surgery for "
+    "elderly lung cancer patients using observational data. *Int J Epidemiol*. 2020;49(5):"
+    "1719–1729.",
+    "Lee DS. Training, wages, and sample selection: estimating sharp bounds on treatment "
+    "effects. *Rev Econ Stud*. 2009;76(3):1071–1102.",
+    "Zhang JL, Rubin DB. Estimation of causal effects via principal stratification when some "
+    "outcomes are truncated by \"death\". *J Educ Behav Stat*. 2003;28(4):353–368.",
 ]
 for i, ref in enumerate(REFS, 1):
     add_reference(i, ref)
@@ -847,13 +878,15 @@ add_table(
         ["PS-trim 0.1–0.9", "0.64 (0.40–1.00)", "1.01 (0.60–1.69)"],
         ["Outcome window 72 h (reverse causation)", "0.67 (0.43–1.04)", "1.29 (0.88–1.89)"],
         ["Missingness indicators (>10% missing)", "0.63 (0.41–0.98)", "1.41 (0.97–2.05)"],
+        ["Multiple imputation (MICE, m=25)", "0.59 (0.38–0.92)", "1.34 (0.91–1.95)"],
     ],
 )
 table_note("All estimates are overlap-weighted odds ratios for the infection composite, with 95% "
            "confidence intervals. ONS = oral nutritional supplement; ITT = intention-to-treat. "
-           "The outcome-window and missingness-indicator rows were added in response to peer "
-           "review. Full results (risk ratios, risk differences, IPTW, PSM) are in Table S4, and "
-           "the two reviewer sensitivities are in Table S13.")
+           "The outcome-window, missingness-indicator, and multiple-imputation rows are post hoc "
+           "sensitivity analyses added after protocol finalization. Full results (risk ratios, "
+           "risk differences, IPTW, PSM) are in Table S4, and the post hoc sensitivities are in "
+           "Tables S13 and S14.")
 
 # ============================================================================
 # FIGURES
@@ -924,8 +957,10 @@ SUPP_TABLES = [
     "tallies, and comparison A/B estimates (`analysis/mimic3_replication.md`).",
     "**Table S12.** Three-database harmonization (MIMIC-IV / MIMIC-III / eICU-CRD) with "
     "bias-direction notes (`analysis/three_db_harmonization.md`).",
-    "**Table S13.** Reviewer sensitivity analyses: post-48-h (72-h) reverse-causation and "
+    "**Table S13.** Post hoc sensitivity analyses: post-48-h (72-h) reverse-causation and "
     "missingness-indicator (`analysis/reviewer_sensitivity.md`).",
+    "**Table S14.** Multiple-imputation (MICE, m=25) sensitivity: pooled OW / IPTW / AIPW "
+    "estimates (`analysis/mice_sensitivity.md`).",
     "**Figure 8.** Replication forest plot: infection composite and treated-urinary-tract-"
     "infection negative control, crude and overlap-weighted, MIMIC-IV vs MIMIC-III "
     "(`analysis/figures/fig8_replication_forest.png`).",

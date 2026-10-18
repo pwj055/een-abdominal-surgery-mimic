@@ -115,7 +115,7 @@ def main():
                 ("B", df, "B: EEN vs no-EEN")]:
         c13.analyze(cfg[1], "infection_72h", cfg[2], rows, None)
 
-    md = ["# Reviewer sensitivity analyses (72-h outcome window; missingness indicators)\n"]
+    md = ["# Post hoc sensitivity analyses (72-h outcome window; missingness indicators)\n"]
 
     md.append("\n## B9. Post-48h reverse-causation sensitivity (infection composite, 72-h outcome window)\n")
     md.append("The 48-h landmarked cohort is unchanged; only the outcome window start is deferred "
