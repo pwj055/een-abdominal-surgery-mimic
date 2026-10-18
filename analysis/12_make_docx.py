@@ -287,7 +287,7 @@ body("We used the target-trial-emulation framework [7] to make explicit the caus
      "available for several years, true prospective preregistration (prior to any investigator "
      "exposure to the data) is not feasible; the OSF entry represents a time-stamped analysis "
      "plan finalized before outcome modeling, following recommended practice for secondary-"
-     "database studies. Table S1 maps each component of the target trial to its emulation.")
+     "database studies. Table S1 maps each component of the target trial to its emulation. This study is reported in accordance with the STROBE statement for cohort studies and its RECORD extension for studies using routinely collected health data (Additional Files 1 and 2).")
 add_table(
     ["Target-trial component", "Emulation"],
     [
@@ -453,7 +453,7 @@ h2("3.3 Primary outcome")
 body("**Comparison A (EEN vs late EN).** The treated-infection composite occurred in 54/192 "
      "(28.1%) EEN and 171/346 (49.4%) late-EN patients (crude OR 0.40, 95% CI 0.27–0.58). After "
      "overlap weighting the association attenuated but remained protective (OR 0.60, 95% CI "
-     "0.39–0.93, p=0.023; RR 0.73, 0.55–0.97; risk difference −0.12, −0.22 to −0.02, corresponding to a number needed to treat of approximately 8 [range 5–50]); IPTW (OR "
+     "0.39–0.93, p=0.023; RR 0.73, 0.55–0.97; risk difference −0.12, −0.22 to −0.02, corresponding to a number needed to treat of approximately 8 [range 5–50], derived from the risk-difference confidence interval and interpreted cautiously given its width); IPTW (OR "
      "0.68, 0.42–1.09) was consistent, and PSM — a conditional estimate restricted to 126 "
      "matched pairs (65.6% of the EEN arm, 34% dropped for lack of a caliper-matched control) — "
      "was directionally consistent but larger in magnitude (OR 0.33, 0.18–0.60; Tables S4, S5). "
@@ -467,10 +467,10 @@ body("**Comparison B (EEN vs no-EEN).** Infection risk was similar: 54/192 (28.1
 body("As a face-validity check of the primary endpoint, the composite was cross-tabulated against "
      "ICD-coded infection diagnoses recorded during the admission. Against ICD-coded any-site "
      "infection the composite showed high specificity (90.6%) and positive predictive value "
-     "(81.2%) with modest sensitivity (36.8%); against ICD-coded sepsis/bacteraemia, concordance "
+     "(81.2%) with modest sensitivity (36.8%); against ICD-coded sepsis/bacteremia, concordance"
      "was modest (67.3% agreement; Cohen's κ = 0.215). The modest sensitivity is expected because "
      "the composite intentionally restricts to culture-confirmed, antibiotic-treated infection — "
-     "favouring specificity, the property that most limits outcome misclassification, over "
+     "favoring specificity, the property that most limits outcome misclassification, over "
      "sensitivity. ICD-coded diagnoses are not a reference standard, so these metrics describe "
      "concordance rather than diagnostic accuracy (Supplement Table S15).")
 

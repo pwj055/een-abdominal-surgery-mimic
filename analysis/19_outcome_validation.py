@@ -11,7 +11,7 @@ Neither source is a gold standard (ICD codes are billing diagnoses and may be co
 without a positive culture; the composite requires both a culture and an antibiotic),
 so this is reported as concordance, not as sensitivity/specificity against truth.
 We report two reference definitions:
-  * ICD sepsis/bacteraemia (narrow, least ambiguous):
+  * ICD sepsis/bacteremia (narrow, least ambiguous):
       ICD-10 A40*, A41*, R65.1, R65.2, R78.8 ;  ICD-9 038*, 99591, 99592, 78552
   * ICD any matching-site infection (sepsis + pneumonia + peritonitis/abscess + SSI):
       sepsis (above) + ICD-10 J12*-J18*, K65*, K63.0, K75.0, T81.4*, L02* ;
@@ -29,7 +29,7 @@ import duckdb
 HERE = os.path.dirname(os.path.abspath(__file__))
 M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
 
-# narrow = sepsis/bacteraemia
+# narrow = sepsis/bacteremia
 SEPSIS_V10 = ["A40", "A41", "R651", "R652", "R788"]
 SEPSIS_V9 = ["038", "99591", "99592", "78552"]
 # broad = any matching-site infection (blood/resp/abdominal/wound)
@@ -84,13 +84,13 @@ def main():
                  "sensitivity/specificity against truth.\n")
 
     lines.append("\n## ICD code lists used\n")
-    lines.append("- **ICD sepsis/bacteraemia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, "
+    lines.append("- **ICD sepsis/bacteremia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, "
                  "`R78.8`; ICD-9 `038*`, `99591`, `99592`, `78552`.\n")
     lines.append("- **ICD any matching-site infection (broad):** sepsis list above plus ICD-10 "
                  "`J12*`–`J18*`, `K65*`, `K63.0`, `K75.0`, `T81.4*`, `L02*`; ICD-9 `481`, `482`, "
                  "`483`, `485`, `486`, `567*`, `540.1`, `998.5*`.\n")
 
-    for label, nice in [("sepsis", "ICD sepsis/bacteraemia"),
+    for label, nice in [("sepsis", "ICD sepsis/bacteremia"),
                         ("any_infection", "ICD any matching-site infection")]:
         tp = int(((d["infection_composite"] == 1) & (d[label] == 1)).sum())
         fp = int(((d["infection_composite"] == 1) & (d[label] == 0)).sum())

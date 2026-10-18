@@ -5,12 +5,12 @@ Cross-tabulation of the treated-infection composite (positive non-urine culture 
 
 ## ICD code lists used
 
-- **ICD sepsis/bacteraemia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, `R78.8`; ICD-9 `038*`, `99591`, `99592`, `78552`.
+- **ICD sepsis/bacteremia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, `R78.8`; ICD-9 `038*`, `99591`, `99592`, `78552`.
 
 - **ICD any matching-site infection (broad):** sepsis list above plus ICD-10 `J12*`–`J18*`, `K65*`, `K63.0`, `K75.0`, `T81.4*`, `L02*`; ICD-9 `481`, `482`, `483`, `485`, `486`, `567*`, `540.1`, `998.5*`.
 
 
-## ICD sepsis/bacteraemia
+## ICD sepsis/bacteremia
 
 | composite \ ICD | ICD + | ICD − | total |
 |---|---|---|---|
