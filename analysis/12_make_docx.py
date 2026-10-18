@@ -303,21 +303,21 @@ add_table(
 body("We prespecified two co-primary comparisons. **Comparison A (timing)** restricted to "
      "patients who received tube EN at any time during their ICU stay and compared EEN (first "
      "feed ≤48 h) with late EN (first feed >48 h). Because \"eventually fed\" is a post-baseline "
-     "trajectory, this contrast is a principal-stratum (survivor-average-causal-effect) estimand [16] rather than intention-to-treat: it "
+     "trajectory, this contrast is a principal-stratum (survivor-average-causal-effect) estimand [8] rather than intention-to-treat: it "
      "estimates the effect of early versus late feeding *within the subpopulation who are "
      "ultimately fed*. **Comparison B (policy)** compared EEN with no-EEN-by-48-h in the full "
      "landmarked cohort, a policy (intention-to-treat-like) estimand. The never-fed group was "
      "characterized descriptively but was not treated as a homogeneous comparator.")
-body("We used a 48-h landmark design to avoid immortal-time (guarantee-time) bias [22] and to "
+body("We used a 48-h landmark design to avoid immortal-time (guarantee-time) bias [9] and to "
      "align time zero across the compared strategies; the landmark excludes patients who died or "
      "were discharged before 48 h (reported transparently in Figure 1). Clone–censor–weight "
      "approaches are a more general alternative suited to dynamic or time-varying feeding "
-     "decisions, and we note them as a direction for methodological follow-up work [23]; as a "
+     "decisions, and we note them as a direction for methodological follow-up work [10]; as a "
      "pragmatic check within the landmark design, a sensitivity deferring the outcome window "
      "start to 72 h is reported in the Supplement (Table S13).")
 
 h2("2.2 Data source")
-body("MIMIC-IV v3.1 [8] is a single-center database of de-identified electronic health records "
+body("MIMIC-IV v3.1 [11] is a single-center database of de-identified electronic health records "
      "for patients admitted to Beth Israel Deaconess Medical Center, Boston, USA. Use was "
      "approved under the PhysioNet data-use agreement (certificate number [ ]). Analyses were "
      "performed with Python (duckdb, pandas, statsmodels).")
@@ -364,7 +364,7 @@ body("The **primary outcome** was in-hospital treated infection within 28 days o
      "during hospitalization; death was assessed through hospital discharge, but only 38 of the "
      "223 landmarked deaths (17%) occurred beyond 28 days, and 28-day mortality was additionally "
      "examined in the competing-risk sensitivity. As a negative-control (falsification) outcome "
-     "[18], we additionally defined treated urinary-tract infection — a positive urine culture "
+     "[12], we additionally defined treated urinary-tract infection — a positive urine culture "
      "with a systemic antibiotic in the same [−1 d, +2 d] window, under the same >48-h/<28-d and "
      "contaminant-exclusion rules as the primary composite. Urine was chosen because early "
      "enteral feeding has no plausible mechanism by which it should reduce urinary infection; an "
@@ -398,16 +398,16 @@ body("Covariates were measured in the fixed 0–24 h window after ICU admission 
 h2("2.7 Statistical analysis")
 body("Baseline characteristics were summarized by feeding group, with standardized mean "
      "differences (SMD). For each co-primary comparison we fit a propensity-score (PS) model "
-     "[9] for EEN using the full covariate set. The **primary estimator was overlap weighting** "
-     "[10] (treated weight 1−PS, control weight PS), which targets the overlap population (the "
+     "[13] for EEN using the full covariate set. The **primary estimator was overlap weighting** "
+     "[14] (treated weight 1−PS, control weight PS), which targets the overlap population (the "
      "region of greatest clinical equipoise), where covariate balance is expected to be "
      "excellent; balance was verified with weighted standardized mean differences; stabilized "
-     "and 1st/99th-percentile-truncated inverse-probability-of-treatment weighting [12] and 1:1 "
+     "and 1st/99th-percentile-truncated inverse-probability-of-treatment weighting [15] and 1:1 "
      "propensity-score matching (caliper of 0.2 SD of the logit propensity score, the standard "
-     "shown to remove most measured confounding [11]) served as triangulation. As a doubly-robust check, we additionally estimated marginal risk differences and risk ratios with augmented inverse-probability weighting [19], which combines the propensity-score and outcome models and is consistent if either is correctly specified. Treatment effects "
+     "shown to remove most measured confounding [16]) served as triangulation. As a doubly-robust check, we additionally estimated marginal risk differences and risk ratios with augmented inverse-probability weighting [17], which combines the propensity-score and outcome models and is consistent if either is correctly specified. Treatment effects "
      "were estimated with generalized estimating equations (independence working correlation, "
      "robust sandwich standard errors): odds ratios from a weighted binomial-logit model, risk "
-     "ratios from a weighted modified-Poisson (log-link) model [13], and risk differences from a "
+     "ratios from a weighted modified-Poisson (log-link) model [18], and risk differences from a "
      "weighted Gaussian-identity model. Because the primary outcome was common, odds ratios may "
      "overstate relative effects, so risk ratios and risk differences are reported alongside "
      "them. We report weighted SMD and effective sample size for each method, and assessed the "
@@ -429,7 +429,7 @@ body("**Sensitivity analyses** (prespecified): (1) feeding threshold at 24 and 7
      "treated-bloodstream-infection with and without contaminant exclusion; (6) stricter "
      "treated-infection definitions requiring minimum antibiotic courses of 3 and 5 days, to "
      "exclude brief perioperative prophylaxis; (7) overlap trimming to PS ∈ [0.1, 0.9]; (8) "
-     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [14]; (9) a treated-urinary-tract-infection negative-control outcome [18]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness; and (14) a multiple-imputation sensitivity (chained equations, m=25) for the covariates with >10% missingness, pooled by Rubin's rules. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12), missingness-indicator (13), and multiple-imputation (14) sensitivities were added as post hoc analyses after protocol finalization (recorded in the OSF version history)."
+     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [19]; (9) a treated-urinary-tract-infection negative-control outcome [12]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness; and (14) a multiple-imputation sensitivity (chained equations, m=25) for the covariates with >10% missingness, pooled by Rubin's rules. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12), missingness-indicator (13), and multiple-imputation (14) sensitivities were added as post hoc analyses after protocol finalization (recorded in the OSF version history)."
      "The 48-h landmark was justified by reporting death/discharge within 48 h.")
 
 h1("3. Results")
@@ -512,7 +512,7 @@ body("The \"harm\" signals in comparison B were attenuated by overlap trimming t
 
 body("As a quantitative assessment of unmeasured confounding, the E-value for the "
      "comparison-A infection estimate (risk ratio 0.73) was 2.08 for the point estimate and 1.21 "
-     "for the confidence limit closest to the null [17]: a moderately strong unmeasured "
+     "for the confidence limit closest to the null [20]: a moderately strong unmeasured "
      "confounder (associated with both feeding timing and infection by a risk ratio of ≈2.1) "
      "would be required to fully explain away the point estimate, whereas a weaker confounder "
      "(≈1.2) could move the confidence interval to include the null — consistent with a real but "
@@ -553,7 +553,7 @@ body("Augmented inverse-probability weighting (AIPW) — consistent if either th
 
 h2("3.7 Replication in an earlier era (MIMIC-III)")
 body("To test whether the comparison-A association generalizes beyond the MIMIC-IV era, we "
-     "re-ran the same exposure and outcome definitions in MIMIC-III v1.4 [20] (same hospital, "
+     "re-ran the same exposure and outcome definitions in MIMIC-III v1.4 [21] (same hospital, "
      "2001–2012, with partial calendar-time overlap with MIMIC-IV's 2008–2019 but independently "
      "de-identified and non-linkable to MIMIC-IV admissions) — a same-center temporal replication "
      "rather than an independent external validation. Because MIMIC-III stores procedures without "
@@ -573,7 +573,7 @@ body("To test whether the comparison-A association generalizes beyond the MIMIC-
 
 h2("3.8 Supportive multicenter triangulation (eICU-CRD)")
 body("To probe whether the feeding-exposure structure — rather than the infection estimate "
-     "itself — holds beyond a single center, we additionally examined eICU-CRD v2.0 [21] "
+     "itself — holds beyond a single center, we additionally examined eICU-CRD v2.0 [22] "
      "(208 US hospitals, 2014–2015). This analysis is supportive rather than validating: "
      "eICU's microbiology table is too sparse to reproduce the antibiotic-treated-culture "
      "composite, and it has no procedure table, so major abdominal surgery was identified by "
@@ -613,7 +613,7 @@ body("In this target-trial emulation of early versus late enteral nutrition afte
      "confounding rather than effect.")
 body("Comparison A must be read precisely: it is not an intention-to-treat contrast but a "
      "principal-stratum (survivor-average-causal-effect) estimand that conditions on the "
-     "post-baseline event of ultimately receiving enteral nutrition [16]. This conditioning can "
+     "post-baseline event of ultimately receiving enteral nutrition [8]. This conditioning can "
      "in principle induce selection bias, because a patient must survive long enough to be "
      "classified as late-EN, which would tend to make the late-EN arm appear healthier and "
      "thereby attenuate — not inflate — any early-feeding benefit. That the adjusted comparison "
@@ -622,7 +622,7 @@ body("Comparison A must be read precisely: it is not an intention-to-treat contr
      "(comparison B) because the timing question — should a patient who will be fed be fed early? "
      "— is the question clinicians actually face, and it is precisely the question that a single "
      "policy comparison cannot isolate. Formal bounds for the survivor-average causal effect "
-     "(e.g., Lee bounds [24] or Zhang–Rubin bounds [25]) would require reformulating the "
+     "(e.g., Lee bounds [23] or Zhang–Rubin bounds [24]) would require reformulating the "
      "eventually-fed stratum under a baseline strategy-assignment framework — a substantial "
      "extension beyond the present landmark design — so we instead argue qualitatively that the "
      "direction of selection bias from conditioning on eventual feeding would, if anything, bias "
@@ -723,6 +723,7 @@ para("**Acknowledgements.** Not applicable.", align="justify", space_after=4)
 page_break()
 h1("References")
 REFS = [
+
     "Lewis SJ, Egger M, Sylvester PA, Thomas S. Early enteral feeding versus \"nil by mouth\" "
     "after gastrointestinal surgery: systematic review and meta-analysis of controlled trials. "
     "*BMJ*. 2001;323(7316):773–776.",
@@ -743,47 +744,47 @@ REFS = [
     "patients: ESICM clinical practice guidelines. *Intensive Care Med*. 2017;43(3):380–398.",
     "Hernán MA, Robins JM. Using Big Data to Emulate a Target Trial When a Randomized Trial Is "
     "Not Available. *Am J Epidemiol*. 2016;183(8):758–764.",
-    "Johnson AEW, Bulgarelli L, Shen L, et al. MIMIC-IV, a freely accessible electronic health "
-    "record dataset. *Sci Data*. 2023;10(1):1.",
-    "Rosenbaum PR, Rubin DB. The central role of the propensity score in observational studies "
-    "for causal effects. *Biometrika*. 1983;70(1):41–55.",
-    "Li F, Morgan KL, Zaslavsky AM. Balancing covariates via propensity score weighting. *J Am "
-    "Stat Assoc*. 2018;113(521):390–400.",
-    "Austin PC. Optimal caliper widths for propensity-score matching when estimating differences "
-    "in means and differences in proportions in observational studies. *Pharm Stat*. 2011;10(2):"
-    "150–161.",
-    "Cole SR, Hernán MA. Constructing inverse probability weights for marginal structural "
-    "models. *Am J Epidemiol*. 2008;168(6):656–664.",
-    "Zou G. A modified Poisson regression approach to prospective studies with binary data. "
-    "*Am J Epidemiol*. 2004;159(7):702–706.",
-    "Fine JP, Gray RJ. A proportional hazards model for the subdistribution of a competing "
-    "risk. *J Am Stat Assoc*. 1999;94(446):496–509.",
-    "Aalen OO, Johansen S. An empirical transition matrix for non-homogeneous Markov chains "
-    "based on censored observations. *Scand J Stat*. 1978;5(3):141–150.",
     "Frangakis CE, Rubin DB. Principal stratification in causal inference. *Biometrics*. "
     "2002;58(1):21–29.",
-    "VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the "
-    "E-value. *Ann Intern Med*. 2017;167(4):268–274.",
-    "Lipsitch M, Tchetgen Tchetgen E, Cohen T. Negative controls: a tool for detecting "
-    "confounding and bias in observational studies. *Epidemiology*. 2010;21(3):383–388.",
-    "Lunceford JK, Davidian M. Stratification and weighting via the propensity score in "
-    "estimation of causal treatment effects: a comparative study. *Stat Med*. 2004;23(19):"
-    "2937–2960.",
-    "Johnson AEW, Pollard TJ, Shen L, et al. MIMIC-III, a freely accessible critical care "
-    "database. *Sci Data*. 2016;3:160035.",
-    "Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG, Badawi O. The eICU Collaborative "
-    "Research Database, a freely available multi-center database for critical care research. "
-    "*Sci Data*. 2018;5:180178.",
     "Giobbie-Hurder A, Gelber RD, Regan MM. Challenges of guarantee-time bias. *J Clin Oncol*. "
     "2013;31(23):2963–2969.",
     "Maringe C, Benitez Majano S, Exarchakou A, et al. Reflection on modern methods: trial "
     "emulation in the presence of immortal-time bias. Assessing the benefit of major surgery for "
     "elderly lung cancer patients using observational data. *Int J Epidemiol*. 2020;49(5):"
     "1719–1729.",
+    "Johnson AEW, Bulgarelli L, Shen L, et al. MIMIC-IV, a freely accessible electronic health "
+    "record dataset. *Sci Data*. 2023;10(1):1.",
+    "Lipsitch M, Tchetgen Tchetgen E, Cohen T. Negative controls: a tool for detecting "
+    "confounding and bias in observational studies. *Epidemiology*. 2010;21(3):383–388.",
+    "Rosenbaum PR, Rubin DB. The central role of the propensity score in observational studies "
+    "for causal effects. *Biometrika*. 1983;70(1):41–55.",
+    "Li F, Morgan KL, Zaslavsky AM. Balancing covariates via propensity score weighting. *J Am "
+    "Stat Assoc*. 2018;113(521):390–400.",
+    "Cole SR, Hernán MA. Constructing inverse probability weights for marginal structural "
+    "models. *Am J Epidemiol*. 2008;168(6):656–664.",
+    "Austin PC. Optimal caliper widths for propensity-score matching when estimating differences "
+    "in means and differences in proportions in observational studies. *Pharm Stat*. 2011;10(2):"
+    "150–161.",
+    "Lunceford JK, Davidian M. Stratification and weighting via the propensity score in "
+    "estimation of causal treatment effects: a comparative study. *Stat Med*. 2004;23(19):"
+    "2937–2960.",
+    "Zou G. A modified Poisson regression approach to prospective studies with binary data. "
+    "*Am J Epidemiol*. 2004;159(7):702–706.",
+    "Fine JP, Gray RJ. A proportional hazards model for the subdistribution of a competing "
+    "risk. *J Am Stat Assoc*. 1999;94(446):496–509.",
+    "VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the "
+    "E-value. *Ann Intern Med*. 2017;167(4):268–274.",
+    "Johnson AEW, Pollard TJ, Shen L, et al. MIMIC-III, a freely accessible critical care "
+    "database. *Sci Data*. 2016;3:160035.",
+    "Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG, Badawi O. The eICU Collaborative "
+    "Research Database, a freely available multi-center database for critical care research. "
+    "*Sci Data*. 2018;5:180178.",
     "Lee DS. Training, wages, and sample selection: estimating sharp bounds on treatment "
     "effects. *Rev Econ Stud*. 2009;76(3):1071–1102.",
     "Zhang JL, Rubin DB. Estimation of causal effects via principal stratification when some "
     "outcomes are truncated by \"death\". *J Educ Behav Stat*. 2003;28(4):353–368.",
+    "Aalen OO, Johansen S. An empirical transition matrix for non-homogeneous Markov chains "
+    "based on censored observations. *Scand J Stat*. 1978;5(3):141–150.",
 ]
 for i, ref in enumerate(REFS, 1):
     add_reference(i, ref)
@@ -916,7 +917,7 @@ FIGURES = [
      "comparison-A estimate and the attenuation of comparison B on trimming.",
      "fig2_forest.png"),
     ("**Figure 3. Cumulative incidence of death by feeding group.** Aalen–Johansen estimator "
-     "[15] with discharge as the competing risk, truncated at 28 days, shown for all three "
+     "[25] with discharge as the competing risk, truncated at 28 days, shown for all three "
      "feeding groups (EEN / late EN / never fed); presented to explain the mechanism behind the "
      "comparison-B signal, not as a causal-effect estimate.",
      "fig3_cif.png"),
@@ -991,7 +992,7 @@ SUPP_FIGURES = [
     ("**Figure S3.** Infection-composite components by culture site (blood / abdominal / "
      "respiratory / wound) for comparisons A and B.", "supp3_composite_sites.png"),
     ("**Figure S4.** Cumulative incidence of the treated-infection composite by feeding group "
-     "(Aalen–Johansen [15], with in-hospital death and discharge as competing risks, truncated "
+     "(Aalen–Johansen [25], with in-hospital death and discharge as competing risks, truncated "
      "at 28 days).", "supp4_infection_cif.png"),
 ]
 for caption, fname in SUPP_FIGURES:
