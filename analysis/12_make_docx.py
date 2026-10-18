@@ -716,7 +716,8 @@ para("**Availability of data and materials.** The MIMIC-IV, MIMIC-III, and eICU-
      "available from PhysioNet (https://physionet.org/content/mimiciv/, "
      "https://physionet.org/content/mimiciii/, https://physionet.org/content/eicu-crd/) subject "
      "to credentialed data-use agreements; analysis code is publicly available at "
-     "https://github.com/pwj055/een-abdominal-surgery-mimic. The study protocol and analysis "
+     "https://github.com/pwj055/een-abdominal-surgery-mimic and archived at Zenodo "
+     "(https://doi.org/10.5281/zenodo.23446232). The study protocol and analysis "
      "plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).",
      align="justify", space_after=4)
 para("**Competing interests.** [ ]", align="justify", space_after=4)
