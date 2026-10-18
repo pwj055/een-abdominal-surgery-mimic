@@ -203,7 +203,7 @@ The authors declare that they have no competing interests.
 
 ### Funding
 
-No funding.
+This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).
 
 ### Authors' contributions
 

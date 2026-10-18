@@ -24,7 +24,7 @@ We believe the methodological approach — separating principal-stratum and poli
 - **Reporting standards:** The study is reported in accordance with the STROBE statement and its RECORD extension; completed checklists are provided as Additional Files 1 and 2. The study protocol and analysis plan were time-stamped and registered at the Open Science Framework (https://osf.io/g39vw; DOI 10.17605/OSF.IO/G39VW) before outcome modeling.
 - **Ethics:** The study used publicly available, de-identified data (MIMIC-IV, MIMIC-III, eICU-CRD) under credentialed PhysioNet data-use agreements; informed consent was waived by the respective institutional review boards.
 - **Competing interests:** The authors declare that they have no competing interests.
-- **Funding:** No funding.
+- **Funding:** This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).
 - **Data availability:** The clinical databases are available from PhysioNet subject to credentialed data-use agreements; analysis code is public on GitHub and archived on Zenodo (https://doi.org/10.5281/zenodo.23446232).
 
 ## ORCID

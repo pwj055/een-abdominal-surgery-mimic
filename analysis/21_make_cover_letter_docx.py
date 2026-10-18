@@ -109,7 +109,7 @@ para("**Ethics.** The study used publicly available, de-identified data (MIMIC-I
      "eICU-CRD) under credentialed PhysioNet data-use agreements; informed consent was waived by "
      "the respective institutional review boards.", align="justify")
 para("**Competing interests.** The authors declare that they have no competing interests.", align="justify")
-para("**Funding.** No funding.", align="justify")
+para("**Funding.** This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).", align="justify")
 para("**Data availability.** The clinical databases are available from PhysioNet subject to "
      "credentialed data-use agreements; analysis code is public on GitHub and archived on Zenodo "
      "(https://doi.org/10.5281/zenodo.23446232).", align="justify")

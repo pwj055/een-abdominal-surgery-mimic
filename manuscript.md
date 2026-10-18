@@ -277,7 +277,7 @@ Comparison A = EEN vs late EN (eventually-fed, n=538); Comparison B = EEN vs no-
 
 **Competing interests.** The authors declare that they have no competing interests.
 
-**Funding.** No funding.
+**Funding.** This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).
 
 **Authors' contributions.** Peiwu Jiang and Yehong Han conceived and designed the study. Peiwu Jiang performed the data analysis and drafted the manuscript. Yao Xu and Yantao Zhang contributed to data interpretation and critically revised the manuscript. Yehong Han supervised the work. All authors read and approved the final manuscript.
 

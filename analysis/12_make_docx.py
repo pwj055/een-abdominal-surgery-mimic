@@ -198,7 +198,7 @@ para("**Affiliations.** ¹ Department of General Surgery, Hangzhou TCM Hospital 
      "Zhejiang, China.", space_after=6)
 para("†These authors contributed equally to this work.", space_after=6)
 para("**Corresponding author.** Yehong Han, jianghao-163@163.com", space_after=6)
-para("**Funding.** No funding.", space_after=6)
+para("**Funding.** This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).", space_after=6)
 para("**Competing interests.** The authors declare that they have no competing interests.", space_after=6)
 para("**Data availability.** The MIMIC-IV, MIMIC-III, and eICU-CRD datasets are available "
      "from PhysioNet subject to credentialed data-use agreements; analysis code is publicly "
@@ -725,7 +725,7 @@ para("**Availability of data and materials.** The MIMIC-IV, MIMIC-III, and eICU-
      "plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).",
      align="justify", space_after=4)
 para("**Competing interests.** The authors declare that they have no competing interests.", align="justify", space_after=4)
-para("**Funding.** No funding.", align="justify", space_after=4)
+para("**Funding.** This work was supported by the Zhejiang Provincial Health Industry Science and Technology Program Provincial–Ministerial Jointly Funded Project (grant number WKJ-ZJ-26079).", align="justify", space_after=4)
 para("**Authors' contributions.** Peiwu Jiang and Yehong Han conceived and designed the study. Peiwu Jiang performed the data analysis and drafted the manuscript. Yao Xu and Yantao Zhang contributed to data interpretation and critically revised the manuscript. Yehong Han supervised the work. All authors read and approved the final manuscript.", align="justify", space_after=4)
 para("**Acknowledgements.** Not applicable.", align="justify", space_after=4)
 
