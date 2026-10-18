@@ -786,63 +786,63 @@ REFS = [
 
     "Lewis SJ, Egger M, Sylvester PA, Thomas S. Early enteral feeding versus \"nil by mouth\" "
     "after gastrointestinal surgery: systematic review and meta-analysis of controlled trials. "
-    "*BMJ*. 2001;323(7316):773–776.",
+    "*BMJ*. 2001;323(7316):773–776. doi: 10.1136/bmj.323.7316.773.",
     "Andersen HK, Lewis SJ, Thomas S. Early enteral nutrition within 24h of colorectal surgery "
     "versus later commencement of feeding for postoperative complications. *Cochrane Database "
-    "Syst Rev*. 2006;(4):CD004080.",
+    "Syst Rev*. 2006;(4):CD004080. doi: 10.1002/14651858.CD004080.pub2.",
     "Doig GS, Heighes PT, Simpson F, Sweetman EA, Davies AR. Early enteral nutrition, provided "
     "within 24 h of injury or intensive care unit admission, significantly reduces mortality in "
     "critically ill patients: a meta-analysis of randomised controlled trials. *Intensive Care "
-    "Med*. 2009;35(12):2018–2027.",
+    "Med*. 2009;35(12):2018–2027. doi: 10.1007/s00134-009-1664-4.",
     "Singer P, Blaser AR, Berger MM, et al. ESPEN guideline on clinical nutrition in the "
-    "intensive care unit. *Clin Nutr*. 2019;38(1):48–79.",
+    "intensive care unit. *Clin Nutr*. 2019;38(1):48–79. doi: 10.1016/j.clnu.2018.08.037.",
     "McClave SA, Taylor BE, Martindale RG, et al. Guidelines for the Provision and Assessment of "
     "Nutrition Support Therapy in the Adult Critically Ill Patient: Society of Critical Care "
     "Medicine (SCCM) and American Society for Parenteral and Enteral Nutrition (A.S.P.E.N.). "
-    "*JPEN J Parenter Enteral Nutr*. 2016;40(2):159–211.",
+    "*JPEN J Parenter Enteral Nutr*. 2016;40(2):159–211. doi: 10.1177/0148607115621863.",
     "Reintam Blaser A, Starkopf J, Alhazzani W, et al. Early enteral nutrition in critically ill "
-    "patients: ESICM clinical practice guidelines. *Intensive Care Med*. 2017;43(3):380–398.",
+    "patients: ESICM clinical practice guidelines. *Intensive Care Med*. 2017;43(3):380–398. doi: 10.1007/s00134-016-4665-0.",
     "Hernán MA, Robins JM. Using Big Data to Emulate a Target Trial When a Randomized Trial Is "
-    "Not Available. *Am J Epidemiol*. 2016;183(8):758–764.",
+    "Not Available. *Am J Epidemiol*. 2016;183(8):758–764. doi: 10.1093/aje/kwv254.",
     "Frangakis CE, Rubin DB. Principal stratification in causal inference. *Biometrics*. "
-    "2002;58(1):21–29.",
+    "2002;58(1):21–29. doi: 10.1111/j.0006-341X.2002.00021.x.",
     "Giobbie-Hurder A, Gelber RD, Regan MM. Challenges of guarantee-time bias. *J Clin Oncol*. "
-    "2013;31(23):2963–2969.",
+    "2013;31(23):2963–2969. doi: 10.1200/JCO.2013.49.5283.",
     "Maringe C, Benitez Majano S, Exarchakou A, et al. Reflection on modern methods: trial "
     "emulation in the presence of immortal-time bias. Assessing the benefit of major surgery for "
     "elderly lung cancer patients using observational data. *Int J Epidemiol*. 2020;49(5):"
-    "1719–1729.",
+    "1719–1729. doi: 10.1093/ije/dyaa057.",
     "Johnson AEW, Bulgarelli L, Shen L, et al. MIMIC-IV, a freely accessible electronic health "
-    "record dataset. *Sci Data*. 2023;10(1):1.",
+    "record dataset. *Sci Data*. 2023;10(1):1. doi: 10.1038/s41597-022-01899-x.",
     "Lipsitch M, Tchetgen Tchetgen E, Cohen T. Negative controls: a tool for detecting "
-    "confounding and bias in observational studies. *Epidemiology*. 2010;21(3):383–388.",
+    "confounding and bias in observational studies. *Epidemiology*. 2010;21(3):383–388. doi: 10.1097/EDE.0b013e3181d61eeb.",
     "Rosenbaum PR, Rubin DB. The central role of the propensity score in observational studies "
-    "for causal effects. *Biometrika*. 1983;70(1):41–55.",
+    "for causal effects. *Biometrika*. 1983;70(1):41–55. doi: 10.1093/biomet/70.1.41.",
     "Li F, Morgan KL, Zaslavsky AM. Balancing covariates via propensity score weighting. *J Am "
-    "Stat Assoc*. 2018;113(521):390–400.",
+    "Stat Assoc*. 2018;113(521):390–400. doi: 10.1080/01621459.2016.1260466.",
     "Cole SR, Hernán MA. Constructing inverse probability weights for marginal structural "
-    "models. *Am J Epidemiol*. 2008;168(6):656–664.",
+    "models. *Am J Epidemiol*. 2008;168(6):656–664. doi: 10.1093/aje/kwn164.",
     "Austin PC. Optimal caliper widths for propensity-score matching when estimating differences "
     "in means and differences in proportions in observational studies. *Pharm Stat*. 2011;10(2):"
-    "150–161.",
+    "150–161. doi: 10.1002/pst.433.",
     "Lunceford JK, Davidian M. Stratification and weighting via the propensity score in "
     "estimation of causal treatment effects: a comparative study. *Stat Med*. 2004;23(19):"
-    "2937–2960.",
+    "2937–2960. doi: 10.1002/sim.1903.",
     "Zou G. A modified Poisson regression approach to prospective studies with binary data. "
-    "*Am J Epidemiol*. 2004;159(7):702–706.",
+    "*Am J Epidemiol*. 2004;159(7):702–706. doi: 10.1093/aje/kwh090.",
     "Fine JP, Gray RJ. A proportional hazards model for the subdistribution of a competing "
-    "risk. *J Am Stat Assoc*. 1999;94(446):496–509.",
+    "risk. *J Am Stat Assoc*. 1999;94(446):496–509. doi: 10.1080/01621459.1999.10474144.",
     "VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the "
-    "E-value. *Ann Intern Med*. 2017;167(4):268–274.",
+    "E-value. *Ann Intern Med*. 2017;167(4):268–274. doi: 10.7326/M16-2607.",
     "Johnson AEW, Pollard TJ, Shen L, et al. MIMIC-III, a freely accessible critical care "
-    "database. *Sci Data*. 2016;3:160035.",
+    "database. *Sci Data*. 2016;3:160035. doi: 10.1038/sdata.2016.35.",
     "Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG, Badawi O. The eICU Collaborative "
     "Research Database, a freely available multi-center database for critical care research. "
-    "*Sci Data*. 2018;5:180178.",
+    "*Sci Data*. 2018;5:180178. doi: 10.1038/sdata.2018.178.",
     "Lee DS. Training, wages, and sample selection: estimating sharp bounds on treatment "
-    "effects. *Rev Econ Stud*. 2009;76(3):1071–1102.",
+    "effects. *Rev Econ Stud*. 2009;76(3):1071–1102. doi: 10.1111/j.1467-937X.2009.00536.x.",
     "Zhang JL, Rubin DB. Estimation of causal effects via principal stratification when some "
-    "outcomes are truncated by \"death\". *J Educ Behav Stat*. 2003;28(4):353–368.",
+    "outcomes are truncated by \"death\". *J Educ Behav Stat*. 2003;28(4):353–368. doi: 10.3102/10769986028004353.",
     "Aalen OO, Johansen S. An empirical transition matrix for non-homogeneous Markov chains "
     "based on censored observations. *Scand J Stat*. 1978;5(3):141–150.",
 ]

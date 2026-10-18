@@ -13,6 +13,8 @@ data/
 manuscript_submission.docx
 manuscript_criticalcare.docx
 cover_letter_criticalcare.docx
+Supplementary_Material.docx
+graphical_abstract.png
 
 # ---- Python ----
 __pycache__/
