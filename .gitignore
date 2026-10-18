@@ -1,0 +1,22 @@
+# ---- PhysioNet DUA-protected raw data — never commit ----
+mimic-iv/
+mimic3/
+eicu/
+data/
+
+# ---- derived patient-level / all CSV tables (DUA-protected) ----
+*.csv
+*.csv.gz
+*.parquet
+
+# ---- generated manuscript binary (source of truth is manuscript.md) ----
+manuscript_submission.docx
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
