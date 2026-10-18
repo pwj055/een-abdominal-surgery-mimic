@@ -2,7 +2,7 @@
 """Focused follow-up: cohort-restricted F5 + landmarked F4c + emergency subgroup split."""
 import duckdb
 
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 con = duckdb.connect()
 
 SURGICAL_ICUS = (

@@ -15,7 +15,7 @@ NOTE: full SOFA (GCS/MAP/FiO2 via chartevents) and BMI are a planned 2nd pass.
 import os
 import duckdb
 
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 THRESH = int(os.environ.get("EEN_THRESH", "48"))   # exposure cutoff + landmark (hours)
 OUT = os.path.join(os.path.dirname(__file__), "cohort.csv" if THRESH == 48 else f"cohort_{THRESH}h.csv")
 

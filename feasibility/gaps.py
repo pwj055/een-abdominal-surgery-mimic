@@ -5,7 +5,7 @@
    (3) reoperation proxy refinement (type + 3-14d window)."""
 import duckdb
 
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 con = duckdb.connect()
 
 SURGICAL_ICUS = (

@@ -27,7 +27,7 @@ import pandas as pd
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 
 # narrow = sepsis/bacteremia
 SEPSIS_V10 = ["A40", "A41", "R651", "R652", "R788"]

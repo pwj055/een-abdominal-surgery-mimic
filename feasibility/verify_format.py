@@ -2,7 +2,7 @@
 """One-off: verify MIMIC-IV v3.1 field formats before the full feasibility run."""
 import duckdb
 
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 
 con = duckdb.connect()
 

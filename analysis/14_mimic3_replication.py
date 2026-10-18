@@ -31,7 +31,7 @@ from statsmodels.genmod.families.links import Logit, Identity, Log
 from statsmodels.genmod.cov_struct import Independence
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M3 = "D:/mimic3"
+M3 = "D:/physionet/mimic3"
 OUT = os.path.join(HERE, "mimic3_cohort.csv")
 
 CONT = ["age", "n_major_procs", "lactate_max", "creat_max", "wbc_max", "plt_min", "bili_max",

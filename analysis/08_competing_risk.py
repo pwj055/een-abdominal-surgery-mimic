@@ -24,7 +24,7 @@ import scipy.optimize as so
 import statsmodels.api as sm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 THRESH = 48
 
 spec = importlib.util.spec_from_file_location("est", os.path.join(HERE, "02_weighting.py"))

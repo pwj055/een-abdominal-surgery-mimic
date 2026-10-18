@@ -1,7 +1,7 @@
 # Analysis pipeline — EEN after major abdominal surgery (MIMIC-IV v3.1)
 
 Reproducible target-trial-emulation pipeline. Run in order; each stage reads the
-previous stage's output. All scripts live here; raw data stays in `../mimic-iv/`.
+previous stage's output. All scripts live here; raw data stays in `D:\physionet\mimic-iv\`.
 
 ## Stages
 
@@ -17,8 +17,8 @@ previous stage's output. All scripts live here; raw data stays in `../mimic-iv/`
 | `10_reviewer_diagnostics.py` | Reviewer-driven diagnostics: PSM match-rate / caliper-sensitivity / discordant pairs (Comparison A), and upper-GI exclusion & stratification. | `psm_diagnostics.md`, `upper_gi_sensitivity.md` |
 | `11_reviewer_figures.py` | Reviewer-driven figures: PS overlap (Fig 4), Love plot (Fig 5), threshold dose-response gradient (Fig 6), estimand schematic (Fig 7), plus supplement feeding-time / never-fed / composite-site figures. | `figures/fig{4..7}*.png`, `figures/supp*.png` |
 | `13_causal_hardening.py` | Causal-hardening analyses: negative-control outcome (treated UTI), doubly-robust AIPW RD/RR/OR, and missing-data reporting + complete-case sensitivity. | `negative_control.md`, `missing_data.md` |
-| `14_mimic3_replication.py` | Same-center/temporal replication in MIMIC-III v1.4 (D:\mimic3): rebuilds the cohort (no surgery-date filter; MV from CHARTEVENTS 720/223849; Elixhauser ICD-9), then OW for comparisons A/B × {infection composite, treated UTI}. | `mimic3_cohort.csv`, `mimic3_replication.md` |
-| `15_eicu_replication.py` | Supportive multicenter (eICU-CRD v2.0, D:\eicu): APACHE "surgery for" cohort, intakeOutput enteral classifier, 48-h landmark, death/LOS/ventilation descriptive + OW death. **Not a validation** (microLab too sparse, no procedure table). | `eicu_cohort.csv`, `eicu_replication.md` |
+| `14_mimic3_replication.py` | Same-center/temporal replication in MIMIC-III v1.4 (D:\physionet\mimic3): rebuilds the cohort (no surgery-date filter; MV from CHARTEVENTS 720/223849; Elixhauser ICD-9), then OW for comparisons A/B × {infection composite, treated UTI}. | `mimic3_cohort.csv`, `mimic3_replication.md` |
+| `15_eicu_replication.py` | Supportive multicenter (eICU-CRD v2.0, D:\physionet\eicu): APACHE "surgery for" cohort, intakeOutput enteral classifier, 48-h landmark, death/LOS/ventilation descriptive + OW death. **Not a validation** (microLab too sparse, no procedure table). | `eicu_cohort.csv`, `eicu_replication.md` |
 | `16_replication_forest.py` | Replication forest plot: MIMIC-IV vs MIMIC-III, infection composite + treated-UTI negative control, crude + OW. | `figures/fig8_replication_forest.png` |
 | `17_reviewer_sensitivity.py` | Reviewer B-tier sensitivities: post-48h reverse-causation (72-h outcome window) and missingness-indicator (all >10%-missing covariates). | `reviewer_sensitivity.md` |
 | `18_mice_sensitivity.py` | Multiple imputation by chained equations (m=25, 15 iter) for the five >10%-missing covariates; PS/OW/IPTW/AIPW refit per dataset, pooled by Rubin's rules. | `mice_sensitivity.md` |

@@ -26,7 +26,7 @@ import sys
 import duckdb
 
 # ---------------------------------------------------------------- config
-MIMIC_DIR = r"C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"  # <-- EDIT ME
+MIMIC_DIR = r"D:/physionet/mimic-iv"  # <-- EDIT ME
 
 CORE = os.path.join(MIMIC_DIR, "core")
 HOSP = os.path.join(MIMIC_DIR, "hosp")

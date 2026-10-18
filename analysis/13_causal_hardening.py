@@ -23,7 +23,7 @@ from statsmodels.genmod.families.links import Logit, Identity, Log
 from statsmodels.genmod.cov_struct import Independence
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 
 CONT = ["age", "n_major_procs", "lactate_max", "creat_max", "wbc_max", "plt_min", "bili_max",
         "gcs_min", "map_min", "fio2_max", "po2_min", "bmi"]

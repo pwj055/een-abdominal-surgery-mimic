@@ -8,7 +8,7 @@ no procedure-code table to identify major abdominal surgery directly). It is use
 here as a *supportive multicenter triangulation* of the feeding-exposure structure
 and of the death/LOS endpoints, per protocol §12.10.
 
-What this script does (on D:/eicu, 208 US hospitals, 2014-2015):
+What this script does (on D:/physionet/eicu, 208 US hospitals, 2014-2015):
   * surgical cohort := first ICU stay whose APACHE admission diagnosis is a
     major abdominal "surgery for ..." category (explicit surgical APACHE labels,
     the closest available proxy for the MIMIC-IV procedure-code definition);
@@ -35,7 +35,7 @@ from statsmodels.genmod.families.links import Logit, Identity, Log
 from statsmodels.genmod.cov_struct import Independence
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = sys.argv[1].rstrip("/\\") if len(sys.argv) > 1 else "D:/eicu"
+DATA = sys.argv[1].rstrip("/\\") if len(sys.argv) > 1 else "D:/physionet/eicu"
 
 # ---- APACHE admission-diagnosis labels = major abdominal surgery (explicit "surgery for") ----
 GI_SURG = [

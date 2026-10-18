@@ -10,7 +10,7 @@ import pandas as pd
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 df = pd.read_csv(os.path.join(HERE, "cohort.csv"))
 
 CONT = [("age", "Age, years"), ("n_major_procs", "Major procedures, n"),

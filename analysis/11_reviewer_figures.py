@@ -28,7 +28,7 @@ import duckdb
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "figures")
 os.makedirs(OUT, exist_ok=True)
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 
 spec = importlib.util.spec_from_file_location("est", os.path.join(HERE, "02_weighting.py"))
 est = importlib.util.module_from_spec(spec)

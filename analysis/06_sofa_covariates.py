@@ -18,7 +18,7 @@ import os
 import duckdb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-M = "C:/Users/jiang/Desktop/Enteral Nutrition/mimic-iv"
+M = "D:/physionet/mimic-iv"
 OUT = os.path.join(HERE, "sofa_covariates.csv")
 
 GCS_EYE, GCS_VERBAL, GCS_MOTOR = 220739, 223900, 223901
