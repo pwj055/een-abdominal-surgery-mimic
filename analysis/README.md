@@ -20,6 +20,7 @@ previous stage's output. All scripts live here; raw data stays in `../mimic-iv/`
 | `14_mimic3_replication.py` | Same-center/temporal replication in MIMIC-III v1.4 (D:\mimic3): rebuilds the cohort (no surgery-date filter; MV from CHARTEVENTS 720/223849; Elixhauser ICD-9), then OW for comparisons A/B × {infection composite, treated UTI}. | `mimic3_cohort.csv`, `mimic3_replication.md` |
 | `15_eicu_replication.py` | Supportive multicenter (eICU-CRD v2.0, D:\eicu): APACHE "surgery for" cohort, intakeOutput enteral classifier, 48-h landmark, death/LOS/ventilation descriptive + OW death. **Not a validation** (microLab too sparse, no procedure table). | `eicu_cohort.csv`, `eicu_replication.md` |
 | `16_replication_forest.py` | Replication forest plot: MIMIC-IV vs MIMIC-III, infection composite + treated-UTI negative control, crude + OW. | `figures/fig8_replication_forest.png` |
+| `17_reviewer_sensitivity.py` | Reviewer B-tier sensitivities: post-48h reverse-causation (72-h outcome window) and missingness-indicator (all >10%-missing covariates). | `reviewer_sensitivity.md` |
 
 Supporting: `feeding_itemids.csv` = the 112 enteral-nutrition itemids
 (`d_items.linksto='inputevents' AND category='Nutrition - Enteral'`), frozen for
@@ -155,6 +156,13 @@ the supplement.
   B OW 0.82 [0.46–1.45]), consistent with MIMIC's null death endpoint; the infection composite
   cannot be reproduced (microLab 145 KB). Cross-database harmonization is in
   `three_db_harmonization.md`.
+- **Reviewer B-tier sensitivities (`17_reviewer_sensitivity.py`, 2026-10-18)**: (B9)
+  post-48h reverse-causation — deferring the infection outcome window start from 48 h to 72 h
+  attenuates comparison A (OW OR 0.67 [0.43–1.04], p=0.072; AIPW 0.81 [0.52–1.25]) but keeps
+  the protective direction, and leaves B null (OW 1.29 [0.88–1.89]); the association is not a
+  pure artifact of 48–72-h infections. (B10) missingness indicators for every >10%-missing
+  covariate barely move comparison A (OW OR 0.63 [0.41–0.98]) or B (OW 1.41 [0.97–2.05]).
+  See `reviewer_sensitivity.md`.
 
 ## Re-run
 

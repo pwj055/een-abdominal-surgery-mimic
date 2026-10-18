@@ -229,10 +229,15 @@ abstract_para("**Results.** Among 1658 landmarked patients, 192 (11.6%) were EEN
               "late EN, and 1120 (67.6%) never fed. In comparison A, infection occurred in "
               "54/192 (28.1%) EEN and 171/346 (49.4%) late-EN patients; after overlap weighting "
               "EEN was associated with lower infection risk (odds ratio 0.60, 95% CI 0.39–0.93; "
-              "risk ratio 0.73), replicated in MIMIC-III (OR 0.58). In comparison B, infection risk was similar (weighted OR 1.34, "
-              "0.93–1.95). In-hospital death was not lower in either comparison (A: OR 1.48, "
-              "0.87–2.53; B: OR 1.69, 1.08–2.65). Comparison A was stable across threshold, "
-              "feeding-definition, intention-to-treat, and competing-risk sensitivity analyses.")
+              "risk ratio 0.73, 95% CI 0.55–0.97), replicated in MIMIC-III (OR 0.58, 95% CI "
+              "0.42–0.82; same-center, earlier era). In comparison B, infection risk was similar "
+              "(weighted OR 1.34, 0.93–1.95). In-hospital mortality was not reduced; comparison A "
+              "was null (OR 1.48, 0.87–2.53) and comparison B showed a higher weighted mortality "
+              "estimate (OR 1.69, 1.08–2.65) interpreted as confounding rather than harm. A "
+              "treated-urinary-infection negative-control outcome was null after adjustment in "
+              "comparison A but reproduced the policy comparison's harm pattern, corroborating "
+              "confounding. Comparison A was stable across threshold, feeding-definition, "
+              "intention-to-treat, and competing-risk sensitivity analyses.")
 abstract_para("**Conclusions.** Among patients who ultimately received enteral nutrition, "
               "earlier initiation was associated with fewer antibiotic-treated infections — a "
               "conditional timing effect, not intention-to-treat, with robust direction but "
@@ -277,8 +282,11 @@ body("We used the target-trial-emulation framework [7] to make explicit the caus
      "and we declared the estimand before analysis. The protocol, including all outcome "
      "definitions, covariate sets, and sensitivity analyses, was finalized before model fitting "
      "(Supplement). The protocol and analysis plan are registered at OSF "
-     "(https://osf.io/g39vw; DOI 10.17605/OSF.IO/G39VW). Table S1 maps each component of the "
-     "target trial to its emulation.")
+     "(https://osf.io/g39vw; DOI 10.17605/OSF.IO/G39VW). Because MIMIC-IV has been publicly "
+     "available for several years, true prospective preregistration (prior to any investigator "
+     "exposure to the data) is not feasible; the OSF entry represents a time-stamped analysis "
+     "plan finalized before outcome modeling, following recommended practice for secondary-"
+     "database studies. Table S1 maps each component of the target trial to its emulation.")
 add_table(
     ["Target-trial component", "Emulation"],
     [
@@ -362,7 +370,11 @@ body("Covariates were measured in the fixed 0–24 h window after ICU admission 
      "receipt, mechanical ventilation, and comorbidities (diabetes, chronic kidney disease, "
      "cirrhosis). Body-mass index (from recorded height and weight, a fixed characteristic not "
      "tied to the 0–24-h window) was included separately. Continuous covariates were "
-     "median-imputed with a missingness indicator for lactate. Missingness was ≤1.1% for age, "
+     "median-imputed with a missingness indicator for lactate. Because several laboratories had "
+     "substantial missingness, single median imputation (rather than complete-case analysis) was "
+     "used primarily to preserve cohort size and avoid selection; a sensitivity additionally "
+     "assigning a missingness indicator to every variable with >10% missingness is reported "
+     "alongside the complete-case results (Supplement Table S9). Missingness was ≤1.1% for age, "
      "number of procedures, creatinine, white-cell count, platelets, Glasgow Coma Scale, and mean "
      "arterial pressure, but appreciable for bilirubin (37.5%), body-mass index (33.8%), FiO₂ "
      "(25.8%), lactate (22.6%), and PaO₂ (19.1%); a complete-case sensitivity was therefore "
@@ -402,7 +414,7 @@ body("**Sensitivity analyses** (prespecified): (1) feeding threshold at 24 and 7
      "treated-bloodstream-infection with and without contaminant exclusion; (6) stricter "
      "treated-infection definitions requiring minimum antibiotic courses of 3 and 5 days, to "
      "exclude brief perioperative prophylaxis; (7) overlap trimming to PS ∈ [0.1, 0.9]; (8) "
-     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [14]; (9) a treated-urinary-tract-infection negative-control outcome [18]; and (10) a same-center replication in an earlier era using MIMIC-III [20]; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay [21]."
+     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [14]; (9) a treated-urinary-tract-infection negative-control outcome [18]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; and (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12) and missingness-indicator (13) sensitivities were added in response to peer review."
      "The 48-h landmark was justified by reporting death/discharge within 48 h.")
 
 h1("3. Results")
@@ -482,6 +494,15 @@ body("As a quantitative assessment of unmeasured confounding, the E-value for th
      "would be required to fully explain away the point estimate, whereas a weaker confounder "
      "(≈1.2) could move the confidence interval to include the null — consistent with a real but "
      "imprecise protective effect.")
+body("As further robustness checks, a post-48-h reverse-causation sensitivity deferring the "
+     "infection outcome window start from 48 h to 72 h (keeping the 48-h landmarked cohort) "
+     "attenuated comparison A (overlap-weighted OR 0.67, 0.43–1.04, p=0.072; AIPW 0.81, 0.52–1.25) "
+     "but preserved the protective direction, arguing against the association being a pure "
+     "artifact of infections arising in the 48–72-h window that also determined the feeding "
+     "decision; comparison B remained null under overlap weighting (OR 1.29, 0.88–1.89). A "
+     "missingness-indicator sensitivity adding an indicator for every covariate with >10% "
+     "missingness left comparison A essentially unchanged (overlap-weighted OR 0.63, 0.41–0.98) "
+     "and comparison B still null (OR 1.41, 0.97–2.05).")
 
 h2("3.6 Doubly-robust estimation and negative control")
 body("Augmented inverse-probability weighting (AIPW) — consistent if either the "
@@ -498,12 +519,17 @@ body("Augmented inverse-probability weighting (AIPW) — consistent if either th
      "(IPTW OR 1.80, 1.02–3.19; AIPW 1.81, 1.03–3.19, mirroring the infection composite's 1.76 / "
      "1.81); because early feeding cannot plausibly increase urinary infection, this parallel is "
      "further evidence that comparison B's apparent harm reflects never-fed confounding rather "
-     "than a causal effect (Supplement Table S10).")
+     "than a causal effect (Supplement Table S10). Although early EN has no direct biological "
+     "pathway to prevent urinary infection, a treated urinary infection could still be indirectly "
+     "influenced by recovery-related processes (e.g., urinary-catheter duration); it therefore "
+     "serves as a falsification test for broad health-status confounding rather than a definitive "
+     "placebo outcome.")
 
 h2("3.7 Replication in an earlier era (MIMIC-III)")
 body("To test whether the comparison-A association generalizes beyond the MIMIC-IV era, we "
      "re-ran the same exposure and outcome definitions in MIMIC-III v1.4 [20] (same hospital, "
-     "2001–2012, largely disjoint from MIMIC-IV's 2008–2019) — a same-center temporal sensitivity "
+     "2001–2012, with partial calendar-time overlap with MIMIC-IV's 2008–2019 but independently "
+     "de-identified and non-linkable to MIMIC-IV admissions) — a same-center temporal replication "
      "rather than an independent external validation. Because MIMIC-III stores procedures without "
      "a date, the surgery-before-ICU filter and the leak/reoperation outcome were dropped, "
      "prescriptions are date-granular, and body-mass index was omitted (no omr table); the full "
@@ -543,7 +569,7 @@ body("In this target-trial emulation of early versus late enteral nutrition afte
      "with a lower risk of antibiotic-treated infection (overlap-weighted OR 0.60, 95% CI "
      "0.39–0.93; RR 0.73), an association that was stable across threshold, definition, "
      "intention-to-treat, and competing-risk sensitivity analyses and directionally consistent "
-     "across four estimation methods, including the doubly-robust augmented-IPW estimator (RR 0.83, 0.63–1.09). The direction was reproduced in an earlier, largely non-overlapping era at the same center (MIMIC-III overlap-weighted OR 0.58, 0.42–0.82), supporting that the finding is not an artifact of a single data vintage. A supportive multicenter eICU-CRD analysis reproduced the feeding-exposure structure among documented-fed patients but could not reproduce the infection endpoint; death was null there as in MIMIC. Because the late-EN group had more contaminated/"
+     "across four estimation methods, including the doubly-robust augmented-IPW estimator (RR 0.83, 0.63–1.09). The direction was reproduced in an earlier era at the same center (MIMIC-III overlap-weighted OR 0.58, 0.42–0.82; partial calendar-time overlap, but independently de-identified and non-linkable to MIMIC-IV), supporting that the finding is not an artifact of a single data vintage. A supportive multicenter eICU-CRD analysis reproduced the feeding-exposure structure among documented-fed patients but could not reproduce the infection endpoint; death was null there as in MIMIC. Because the late-EN group had more contaminated/"
      "open-bowel procedures (exploratory laparotomy, stoma) that are associated with extended "
      "perioperative antibiotic prophylaxis, we tested a stricter definition requiring a minimum "
      "3-day antibiotic course; this attenuated the comparison-A association (OR 0.75, 0.46–1.20) "
@@ -593,7 +619,10 @@ body("**Limitations.** Single center; sparse events in the EEN arm (8 treated bl
      "3–14-day window); for the leak/reoperation outcome, early signs of anastomotic "
      "complication arising before the 48-h landmark could have led both to deferred feeding and "
      "to subsequent reoperation — a reverse-causation pathway not addressed by the landmark, "
-     "which was applied only to the primary infection outcome; and eICU-CRD, though now "
+     "which was applied only to the primary infection outcome (a sensitivity deferring the "
+     "outcome window start to 72 h preserved but attenuated the protective association, OW OR "
+     "0.67, so a contribution of reverse causation to early-window events cannot be fully "
+     "excluded); and eICU-CRD, though now "
      "available, cannot reproduce the primary endpoint (sparse microbiology and no procedure "
      "codes) and served only as supportive triangulation of the feeding structure and death — "
      "the MIMIC-III replication is same-center with overlapping "
@@ -614,6 +643,46 @@ body("**Conclusions.** Earlier enteral nutrition after major abdominal surgery w
      "consistent direction but imprecise magnitude. These findings support the safety and "
      "potential benefit of early enteral feeding in selected surgical ICU patients and argue for "
      "explicit estimand separation in future observational studies of feeding timing.")
+
+# ============================================================================
+# KEY MESSAGES
+# ============================================================================
+h1("Key messages")
+for _b in [
+    "Among surgical ICU patients who ultimately received enteral nutrition, earlier initiation "
+    "(≤48 h) was associated with fewer antibiotic-treated infections, with a consistent direction "
+    "across multiple causal-inference methods and two database replications.",
+    "A naive \"early vs. late\" comparison that ignores the large never-fed subgroup can produce "
+    "a spuriously reversed (\"harmful\") association — explicit separation of timing and policy "
+    "estimands is essential in observational feeding-timing research.",
+    "These findings support early enteral feeding in appropriately selected post-abdominal-"
+    "surgery ICU patients, but should not be extrapolated to a universal early-feeding mandate.",
+]:
+    para("• " + _b, align="justify", space_after=4)
+
+# ============================================================================
+# DECLARATIONS
+# ============================================================================
+h1("Declarations")
+para("**Ethics approval and consent to participate.** This study used publicly available, "
+     "de-identified data (MIMIC-IV, MIMIC-III, eICU-CRD). Individual informed consent was waived "
+     "by the Institutional Review Boards of Beth Israel Deaconess Medical Center and the "
+     "Massachusetts Institute of Technology (for the MIMIC databases) and of Philips Healthcare / "
+     "the Massachusetts Institute of Technology (for eICU-CRD); these databases received "
+     "institutional ethics approval for secondary research use under certified data-use "
+     "agreements with PhysioNet (certificate number [ ]).", align="justify", space_after=4)
+para("**Consent for publication.** Not applicable.", align="justify", space_after=4)
+para("**Availability of data and materials.** The MIMIC-IV, MIMIC-III, and eICU-CRD datasets are "
+     "available from PhysioNet (https://physionet.org/content/mimiciv/, "
+     "https://physionet.org/content/mimiciii/, https://physionet.org/content/eicu-crd/) subject "
+     "to credentialed data-use agreements; analysis code is publicly available at "
+     "https://github.com/pwj055/een-abdominal-surgery-mimic. The study protocol and analysis "
+     "plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).",
+     align="justify", space_after=4)
+para("**Competing interests.** [ ]", align="justify", space_after=4)
+para("**Funding.** [ ]", align="justify", space_after=4)
+para("**Authors' contributions.** [ ]", align="justify", space_after=4)
+para("**Acknowledgements.** Not applicable.", align="justify", space_after=4)
 
 # ============================================================================
 # REFERENCES
@@ -717,34 +786,46 @@ table_note("SMD = standardized mean difference. CKD = chronic kidney disease; WB
 table_title("**Table 2.** Primary and key secondary outcomes (overlap weighting primary).")
 add_table(
     ["Outcome", "Comparison", "Events (EEN / control)", "OW OR (95% CI)", "OW RR (95% CI)",
-     "OW RD (95% CI)", "OW p", "IPTW OR (95% CI)"],
+     "OW RD (95% CI)", "OW p", "IPTW OR (95% CI)", "AIPW OR (95% CI)"],
     [
         ["Infection composite (primary)", "A", "54/192 / 171/346", "**0.60 (0.39–0.93)**",
-         "0.73 (0.55–0.97)", "−0.12 (−0.22 to −0.02)", "0.023*", "0.68 (0.42–1.09)"],
+         "0.73 (0.55–0.97)", "−0.12 (−0.22 to −0.02)", "0.023*", "0.68 (0.42–1.09)",
+         "0.73 (0.47–1.14)"],
         ["Infection composite (primary)", "B", "54/192 / 339/1466", "1.34 (0.93–1.95)",
-         "1.24 (0.95–1.62)", "0.06 (−0.02 to 0.13)", "0.118", "1.76 (1.15–2.70)"],
+         "1.24 (0.95–1.62)", "0.06 (−0.02 to 0.13)", "0.118", "1.76 (1.15–2.70)",
+         "1.81 (1.21–2.72)"],
         ["Treated bloodstream infection", "A", "8/192 / 26/346", "0.79 (0.31–1.99)",
-         "0.80 (0.33–1.92)", "−0.01 (−0.06 to 0.03)", "0.617", "0.92 (0.32–2.61)"],
+         "0.80 (0.33–1.92)", "−0.01 (−0.06 to 0.03)", "0.617", "0.92 (0.32–2.61)", "—"],
         ["Treated bloodstream infection", "B", "8/192 / 72/1466", "0.81 (0.36–1.80)",
-         "0.82 (0.38–1.76)", "−0.01 (−0.04 to 0.02)", "0.604", "1.02 (0.39–2.66)"],
+         "0.82 (0.38–1.76)", "−0.01 (−0.04 to 0.02)", "0.604", "1.02 (0.39–2.66)", "—"],
         ["Leak/reoperation", "A", "2/192 / 30/346", "0.29 (0.06–1.35)", "0.30 (0.07–1.36)",
-         "−0.03 (−0.06 to −0.00)", "0.116", "0.18 (0.04–0.90)"],
+         "−0.03 (−0.06 to −0.00)", "0.116", "0.18 (0.04–0.90)", "—"],
         ["Leak/reoperation", "B", "2/192 / 51/1466", "0.44 (0.10–1.90)", "0.44 (0.10–1.89)",
-         "−0.02 (−0.04 to 0.01)", "0.268", "0.34 (0.07–1.54)"],
+         "−0.02 (−0.04 to 0.01)", "0.268", "0.34 (0.07–1.54)", "—"],
         ["In-hospital death", "A", "32/192 / 64/346", "1.48 (0.87–2.53)", "1.38 (0.89–2.15)",
-         "0.06 (−0.02 to 0.13)", "0.149", "1.75 (0.98–3.12)"],
+         "0.06 (−0.02 to 0.13)", "0.149", "1.75 (0.98–3.12)", "—"],
         ["In-hospital death", "B", "32/192 / 191/1466", "1.69 (1.08–2.65)", "1.56 (1.07–2.28)",
-         "0.07 (0.00 to 0.13)", "0.023", "2.32 (1.41–3.82)"],
+         "0.07 (0.00 to 0.13)", "0.023", "2.32 (1.41–3.82)", "—"],
+        ["Negative control (treated urinary infection)", "A", "22/192 / 65/346",
+         "0.88 (0.49–1.60)", "0.90 (0.54–1.49)", "−0.02 (−0.09 to 0.06)", "0.685",
+         "0.91 (0.48–1.72)", "0.80 (0.40–1.63)"],
+        ["Negative control (treated urinary infection)", "B", "22/192 / 152/1466",
+         "1.30 (0.77–2.21)", "1.26 (0.80–2.01)", "0.03 (−0.03 to 0.08)", "0.324",
+         "1.80 (1.02–3.19)", "1.81 (1.03–3.19)"],
     ],
 )
 table_note("Comparison A = EEN vs late EN (eventually-fed, n=538); Comparison B = EEN vs no-EEN "
            "(full landmarked cohort, n=1658). OW = overlap weighting; RR = risk ratio; RD = risk "
-           "difference; IPTW = inverse-probability-of-treatment weighting. p values are two-sided "
-           "Wald p-values from the overlap-weighted logistic model; *p < 0.025, the "
-           "Bonferroni-corrected threshold for the two co-primary comparisons. Propensity-score-"
-           "matched (conditional) estimates and matching diagnostics are reported in Tables S4 "
-           "and S5; doubly-robust augmented-IPW estimates are reported in §3.6 and Supplement "
-           "Table S10.")
+           "difference; IPTW = inverse-probability-of-treatment weighting; AIPW = augmented "
+           "inverse-probability weighting (doubly robust). p values are two-sided Wald p-values "
+           "from the overlap-weighted logistic model; *p < 0.025, the Bonferroni-corrected "
+           "threshold for the two co-primary comparisons. Propensity-score-matched (conditional) "
+           "estimates and matching diagnostics are reported in Tables S4 and S5; doubly-robust "
+           "augmented-IPW estimates are reported in §3.6 and Supplement Table S10. AIPW was "
+           "estimated for the primary infection composite and the negative-control outcome; "
+           "secondary outcomes are reported under overlap weighting, IPTW, and PSM (Table S4). "
+           "The treated-urinary-infection rows are a negative-control (falsification) outcome, "
+           "not a clinical endpoint.")
 
 table_title("**Table 3.** Sensitivity analyses for the primary outcome (overlap-weighted OR, "
             "infection composite).")
@@ -764,11 +845,15 @@ add_table(
         ["Antibiotic course ≥5 days", "0.66 (0.38–1.16)", "1.29 (0.78–2.15)"],
         ["Excluding upper-GI surgery", "0.63 (0.36–1.10)", "—"],
         ["PS-trim 0.1–0.9", "0.64 (0.40–1.00)", "1.01 (0.60–1.69)"],
+        ["Outcome window 72 h (reverse causation)", "0.67 (0.43–1.04)", "1.29 (0.88–1.89)"],
+        ["Missingness indicators (>10% missing)", "0.63 (0.41–0.98)", "1.41 (0.97–2.05)"],
     ],
 )
 table_note("All estimates are overlap-weighted odds ratios for the infection composite, with 95% "
            "confidence intervals. ONS = oral nutritional supplement; ITT = intention-to-treat. "
-           "Full results (risk ratios, risk differences, IPTW, PSM) are in Table S4.")
+           "The outcome-window and missingness-indicator rows were added in response to peer "
+           "review. Full results (risk ratios, risk differences, IPTW, PSM) are in Table S4, and "
+           "the two reviewer sensitivities are in Table S13.")
 
 # ============================================================================
 # FIGURES
@@ -839,6 +924,8 @@ SUPP_TABLES = [
     "tallies, and comparison A/B estimates (`analysis/mimic3_replication.md`).",
     "**Table S12.** Three-database harmonization (MIMIC-IV / MIMIC-III / eICU-CRD) with "
     "bias-direction notes (`analysis/three_db_harmonization.md`).",
+    "**Table S13.** Reviewer sensitivity analyses: post-48-h (72-h) reverse-causation and "
+    "missingness-indicator (`analysis/reviewer_sensitivity.md`).",
     "**Figure 8.** Replication forest plot: infection composite and treated-urinary-tract-"
     "infection negative control, crude and overlap-weighted, MIMIC-IV vs MIMIC-III "
     "(`analysis/figures/fig8_replication_forest.png`).",
