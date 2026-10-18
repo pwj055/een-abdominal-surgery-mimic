@@ -22,6 +22,7 @@ previous stage's output. All scripts live here; raw data stays in `../mimic-iv/`
 | `16_replication_forest.py` | Replication forest plot: MIMIC-IV vs MIMIC-III, infection composite + treated-UTI negative control, crude + OW. | `figures/fig8_replication_forest.png` |
 | `17_reviewer_sensitivity.py` | Reviewer B-tier sensitivities: post-48h reverse-causation (72-h outcome window) and missingness-indicator (all >10%-missing covariates). | `reviewer_sensitivity.md` |
 | `18_mice_sensitivity.py` | Multiple imputation by chained equations (m=25, 15 iter) for the five >10%-missing covariates; PS/OW/IPTW/AIPW refit per dataset, pooled by Rubin's rules. | `mice_sensitivity.md` |
+| `19_outcome_validation.py` | Primary-endpoint face-validity check: cross-tabulate the treated-infection composite against ICD-coded infection/sepsis (sepsis + any matching-site infection). | `outcome_validation.md` |
 
 Supporting: `feeding_itemids.csv` = the 112 enteral-nutrition itemids
 (`d_items.linksto='inputevents' AND category='Nutrition - Enteral'`), frozen for
@@ -170,6 +171,11 @@ the supplement.
   refit per dataset and pooled by Rubin's rules. Pooled OW OR: comparison A 0.59 [0.38–0.92],
   comparison B 1.34 [0.91–1.95] — preserving the protective direction in A and the null in B.
   See `mice_sensitivity.md`.
+- **Outcome face-validity (`19_outcome_validation.py`, 2026-10-18)**: the treated-infection
+  composite is cross-tabulated against ICD-coded diagnoses (sepsis/bacteraemia, and any
+  matching-site infection). Against ICD any-site infection the composite shows specificity 90.6%
+  and PPV 81.2% with modest sensitivity 36.8% — i.e., a specific (not sensitive) proxy, favouring
+  specificity as intended to limit outcome misclassification. See `outcome_validation.md`.
 
 ## Re-run
 

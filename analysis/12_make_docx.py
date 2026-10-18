@@ -221,8 +221,9 @@ abstract_para("**Methods.** We emulated a target trial of early versus delayed E
               "EEN versus late EN among those ultimately fed (a timing effect conditional on the "
               "ultimately-fed stratum, not intention-to-treat; n=538) and (B) EEN versus no "
               "early EN in the full landmarked cohort (a policy effect; n=1658). The primary "
-              "outcome was a composite of non-urine positive cultures with systemic antibiotic "
-              "treatment (a proxy for treated infection) within 28 days. We used overlap "
+              "outcome was in-hospital treated infection — a composite of non-urine positive "
+              "cultures with systemic antibiotic treatment (a proxy for treated infection) — "
+              "within 28 days. We used overlap "
               "weighting (primary), inverse-probability weighting, augmented inverse-probability "
               "weighting, and propensity-score matching.")
 abstract_para("**Results.** Among 1658 landmarked patients, 192 (11.6%) were EEN, 346 (20.9%) "
@@ -295,7 +296,7 @@ add_table(
         ["Time zero", "ICU admission"],
         ["Assignment", "Randomization, emulated by adjustment for baseline covariates (overlap weighting)"],
         ["Follow-up", "From the 48-h landmark to 28 days after ICU admission, hospital discharge, or death (whichever occurred first); outcomes were left-truncated at 48 h"],
-        ["Primary outcome", "Treated infection composite after the 48-h landmark and within 28 days of ICU admission"],
+        ["Primary outcome", "In-hospital treated infection composite after the 48-h landmark and within 28 days of ICU admission"],
         ["Causal contrasts", "(A) timing effect among the eventually-fed; (B) policy effect of an early-feeding strategy"],
     ],
 )
@@ -307,14 +308,13 @@ body("We prespecified two co-primary comparisons. **Comparison A (timing)** rest
      "ultimately fed*. **Comparison B (policy)** compared EEN with no-EEN-by-48-h in the full "
      "landmarked cohort, a policy (intention-to-treat-like) estimand. The never-fed group was "
      "characterized descriptively but was not treated as a homogeneous comparator.")
-body("We used a landmark design rather than a clone–censor–weight approach because the treatment "
-     "strategies involve a single, well-defined decision window (feeding initiation within versus "
-     "after 48 h) rather than a repeated or sustained treatment decision; landmark designs "
-     "introduce minimal bias relative to clone–censor–weight approaches in this setting [22], at "
-     "the cost of excluding patients who died or were discharged before the landmark (reported "
-     "transparently in Figure 1). We acknowledge clone–censor–weight as a methodologically more "
-     "general alternative that could be explored in future work, particularly if the design were "
-     "extended to multiple or time-varying feeding decisions [23].")
+body("We used a 48-h landmark design to avoid immortal-time (guarantee-time) bias [22] and to "
+     "align time zero across the compared strategies; the landmark excludes patients who died or "
+     "were discharged before 48 h (reported transparently in Figure 1). Clone–censor–weight "
+     "approaches are a more general alternative suited to dynamic or time-varying feeding "
+     "decisions, and we note them as a direction for methodological follow-up work [23]; as a "
+     "pragmatic check within the landmark design, a sensitivity deferring the outcome window "
+     "start to 72 h is reported in the Supplement (Table S13).")
 
 h2("2.2 Data source")
 body("MIMIC-IV v3.1 [8] is a single-center database of de-identified electronic health records "
@@ -343,15 +343,18 @@ body("Enteral feeding was identified from the input-events table using the 112 i
      "feed >48 h; never-fed as no feed during the ICU stay.")
 
 h2("2.5 Outcomes")
-body("The **primary outcome** was a composite of positive cultures associated with systemic "
-     "antibiotic treatment — a proxy for clinically treated infection — occurring after the 48-h "
-     "landmark (events in the first 48 h were excluded to avoid reverse causation) and within 28 "
-     "days of ICU admission: a positive blood, abdominal (peritoneal/ascites/bile/abscess/drain), "
-     "respiratory (sputum/tracheal/BAL), or wound/swab culture, with a systemic antibiotic "
-     "prescribed in the window −1 day to +2 days around the culture. Urine cultures and "
-     "culture-negative results were excluded, as were likely contaminants (coagulase-negative "
-     "staphylococci, *Corynebacterium*, *Micrococcus*, *Bacillus*, viridans streptococci, "
-     "diphtheroids). **Key secondary outcomes** were treated bloodstream infection (the "
+body("The **primary outcome** was in-hospital treated infection within 28 days of ICU admission, "
+     "defined as a composite of positive cultures associated with systemic antibiotic treatment "
+     "(a proxy for clinically treated infection) occurring after the 48-h landmark (events in the "
+     "first 48 h were excluded to avoid reverse causation): a positive blood, abdominal "
+     "(peritoneal/ascites/bile/abscess/drain), respiratory (sputum/tracheal/BAL), or wound/swab "
+     "culture, with a systemic antibiotic prescribed in the window −1 day to +2 days around the "
+     "culture. Urine cultures and culture-negative results were excluded, as were likely "
+     "contaminants (coagulase-negative staphylococci, *Corynebacterium*, *Micrococcus*, *Bacillus*, "
+     "viridans streptococci, diphtheroids). Because the composite is a proxy for clinically "
+     "treated infection, we checked its face validity by cross-tabulating it against ICD-coded "
+     "infection/sepsis diagnoses recorded during the admission (Supplement Table S15). **Key "
+     "secondary outcomes** were treated bloodstream infection (the "
      "blood-culture component alone, the most specific layer), anastomotic leak/reoperation (an "
      "exploratory relaparotomy — ICD-9-PCS 54.1 (stored without a decimal as `541`) / ICD-10-PCS "
      "`0WJG…` — 3–14 days after the index procedure, excluding adhesiolysis 54.5 (stored as "
@@ -461,6 +464,14 @@ body("**Comparison A (EEN vs late EN).** The treated-infection composite occurre
 body("**Comparison B (EEN vs no-EEN).** Infection risk was similar: 54/192 (28.1%) vs 339/1466 "
      "(23.1%); overlap-weighted OR 1.34 (0.93–1.95, p=0.118; RR 1.24, 0.95–1.62), IPTW 1.76 "
      "(1.15–2.70).")
+body("As a face-validity check of the primary endpoint, the composite was cross-tabulated against "
+     "ICD-coded infection diagnoses recorded during the admission. Against ICD-coded any-site "
+     "infection the composite showed high specificity (90.6%) and positive predictive value "
+     "(81.2%) with modest sensitivity (36.8%); against ICD-coded sepsis/bacteraemia, agreement "
+     "was 67.3% (Cohen's κ = 0.215). The modest sensitivity is expected because the composite "
+     "intentionally restricts to culture-confirmed, antibiotic-treated infection — favouring "
+     "specificity, the property that most limits outcome misclassification, over sensitivity "
+     "(Supplement Table S15).")
 
 h2("3.4 Secondary outcomes")
 body("**Treated bloodstream infection.** Events were sparse in the EEN arm (8/192, 4.2%): "
@@ -672,7 +683,8 @@ h1("Key messages")
 for _b in [
     "Among surgical ICU patients who ultimately received enteral nutrition, earlier initiation "
     "(≤48 h) was associated with fewer antibiotic-treated infections, with a consistent direction "
-    "across multiple causal-inference methods and two database replications.",
+    "across multiple causal-inference methods, temporal replication in MIMIC-III, and "
+    "supportive multicenter triangulation in eICU-CRD.",
     "A naive \"early vs. late\" comparison that ignores the large never-fed subgroup can produce "
     "a spuriously reversed (\"harmful\") association — explicit separation of timing and policy "
     "estimands is essential in observational feeding-timing research.",
@@ -961,6 +973,8 @@ SUPP_TABLES = [
     "missingness-indicator (`analysis/reviewer_sensitivity.md`).",
     "**Table S14.** Multiple-imputation (MICE, m=25) sensitivity: pooled OW / IPTW / AIPW "
     "estimates (`analysis/mice_sensitivity.md`).",
+    "**Table S15.** Primary-endpoint concordance check against ICD-coded infection/sepsis "
+    "diagnoses (`analysis/outcome_validation.md`).",
     "**Figure 8.** Replication forest plot: infection composite and treated-urinary-tract-"
     "infection negative control, crude and overlap-weighted, MIMIC-IV vs MIMIC-III "
     "(`analysis/figures/fig8_replication_forest.png`).",
