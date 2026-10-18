@@ -250,7 +250,7 @@ Comparison A = EEN vs late EN (eventually-fed, n=538); Comparison B = EEN vs no-
 
 **Competing interests.** [ ]
 
-**Data availability.** The MIMIC-IV, MIMIC-III, and eICU-CRD datasets are available from PhysioNet (https://physionet.org/content/mimiciv/, https://physionet.org/content/mimiciii/, https://physionet.org/content/eicu-crd/) subject to credentialed data-use agreements; analysis code is available from the corresponding author upon request. The study protocol and analysis plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).
+**Data availability.** The MIMIC-IV, MIMIC-III, and eICU-CRD datasets are available from PhysioNet (https://physionet.org/content/mimiciv/, https://physionet.org/content/mimiciii/, https://physionet.org/content/eicu-crd/) subject to credentialed data-use agreements; analysis code is publicly available at https://github.com/pwj055/een-abdominal-surgery-mimic. The study protocol and analysis plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).
 
 **Ethics approval.** Use of the de-identified MIMIC-IV data was approved under the PhysioNet data-use agreement (certificate number [ ]).
 

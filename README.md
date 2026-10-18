@@ -7,6 +7,7 @@ triangulation in **eICU-CRD v2.0**.
 
 ## Registration & manuscript
 
+- **Code repository:** https://github.com/pwj055/een-abdominal-surgery-mimic (MIT license)
 - **Registered protocol:** OSF https://osf.io/g39vw — DOI `10.17605/OSF.IO/G39VW`
   (retrospective registration; the analysis plan was finalized before model fitting,
   protocol dated 2026-10-16).

@@ -3,6 +3,7 @@
 > 状态：**可行性检查已通过（有条件 GO）**。F1–F9 实测数字见 §11。
 > 数据源：MIMIC-IV v3.1（仅 IV）。本文件是方法学定稿，投稿稿另写英文。
 > 注册：OSF **https://osf.io/g39vw**（DOI 10.17605/OSF.IO/G39VW；2026-10-18 回顾性注册，分析计划 2026-10-16 冻结）。
+> 代码：GitHub **https://github.com/pwj055/een-abdominal-surgery-mimic**
 > 关键变更（相对初稿）：感染结局改为**单一主终点 × 两个并列 co-primary 对比**；吻合口漏降为 key secondary 安全结局；never 组拆解后仅作描述。
 
 ## 0. 题目（候选，投稿时定）

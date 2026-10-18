@@ -196,6 +196,10 @@ para("**Affiliations.** [ ]", space_after=6)
 para("**Corresponding author.** [ ]", space_after=6)
 para("**Funding.** [ ]", space_after=6)
 para("**Competing interests.** [ ]", space_after=6)
+para("**Data availability.** The MIMIC-IV, MIMIC-III, and eICU-CRD datasets are available "
+     "from PhysioNet subject to credentialed data-use agreements; analysis code is publicly "
+     "available at https://github.com/pwj055/een-abdominal-surgery-mimic. The study protocol "
+     "and analysis plan are registered at OSF (https://osf.io/g39vw, DOI 10.17605/OSF.IO/G39VW).", space_after=6)
 wc_para = para("**Word count.** Abstract: [ ] words; main text: [ ] words.", space_after=6)
 para("**Key words.** enteral nutrition; abdominal surgery; intensive care unit; "
      "infection; target trial emulation; overlap weighting", space_after=0)
