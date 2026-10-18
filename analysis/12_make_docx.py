@@ -221,9 +221,9 @@ abstract_para("**Methods.** We emulated a target trial of early versus delayed E
               "EEN versus late EN among those ultimately fed (a timing effect conditional on the "
               "ultimately-fed stratum, not intention-to-treat; n=538) and (B) EEN versus no "
               "early EN in the full landmarked cohort (a policy effect; n=1658). The primary "
-              "outcome was in-hospital treated infection — a composite of non-urine positive "
-              "cultures with systemic antibiotic treatment (a proxy for treated infection) — "
-              "within 28 days. We used overlap "
+              "outcome was in-hospital treated infection, defined as a composite of non-urine "
+              "positive cultures accompanied by systemic antibiotics, within 28 days. We used "
+              "overlap "
               "weighting (primary), inverse-probability weighting, augmented inverse-probability "
               "weighting, and propensity-score matching.")
 abstract_para("**Results.** Among 1658 landmarked patients, 192 (11.6%) were EEN, 346 (20.9%) "
@@ -429,7 +429,7 @@ body("**Sensitivity analyses** (prespecified): (1) feeding threshold at 24 and 7
      "treated-bloodstream-infection with and without contaminant exclusion; (6) stricter "
      "treated-infection definitions requiring minimum antibiotic courses of 3 and 5 days, to "
      "exclude brief perioperative prophylaxis; (7) overlap trimming to PS ∈ [0.1, 0.9]; (8) "
-     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [19]; (9) a treated-urinary-tract-infection negative-control outcome [12]; and (10) a same-center replication in an earlier era using MIMIC-III; and (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness; and (14) a multiple-imputation sensitivity (chained equations, m=25) for the covariates with >10% missingness, pooled by Rubin's rules. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12), missingness-indicator (13), and multiple-imputation (14) sensitivities were added as post hoc analyses after protocol finalization (recorded in the OSF version history)."
+     "death modeled with discharge as a competing risk (Fine–Gray subdistribution hazard) [19]; (9) a treated-urinary-tract-infection negative-control outcome [12]; (10) a same-center replication in an earlier era using MIMIC-III; (11) a supportive multicenter (eICU-CRD) triangulation of the feeding-exposure structure and death/length-of-stay; (12) a post-48-h reverse-causation sensitivity that defers the infection outcome window start from 48 h to 72 h while keeping the 48-h landmarked cohort; (13) a missingness-indicator sensitivity that adds an indicator for every covariate with >10% missingness; and (14) a multiple-imputation sensitivity (chained equations, m=25) for the covariates with >10% missingness, pooled by Rubin's rules. Analyses (1)–(9) were prespecified in the original OSF protocol; the MIMIC-III replication (10) and the eICU-CRD triangulation (11) were added as a protocol amendment (recorded in the OSF version history) in response to the need for temporal and multicenter robustness checks, and the reverse-causation (12), missingness-indicator (13), and multiple-imputation (14) sensitivities were added as post hoc analyses after protocol finalization (recorded in the OSF version history)."
      "The 48-h landmark was justified by reporting death/discharge within 48 h.")
 
 h1("3. Results")
@@ -467,11 +467,12 @@ body("**Comparison B (EEN vs no-EEN).** Infection risk was similar: 54/192 (28.1
 body("As a face-validity check of the primary endpoint, the composite was cross-tabulated against "
      "ICD-coded infection diagnoses recorded during the admission. Against ICD-coded any-site "
      "infection the composite showed high specificity (90.6%) and positive predictive value "
-     "(81.2%) with modest sensitivity (36.8%); against ICD-coded sepsis/bacteraemia, agreement "
-     "was 67.3% (Cohen's κ = 0.215). The modest sensitivity is expected because the composite "
-     "intentionally restricts to culture-confirmed, antibiotic-treated infection — favouring "
-     "specificity, the property that most limits outcome misclassification, over sensitivity "
-     "(Supplement Table S15).")
+     "(81.2%) with modest sensitivity (36.8%); against ICD-coded sepsis/bacteraemia, concordance "
+     "was modest (67.3% agreement; Cohen's κ = 0.215). The modest sensitivity is expected because "
+     "the composite intentionally restricts to culture-confirmed, antibiotic-treated infection — "
+     "favouring specificity, the property that most limits outcome misclassification, over "
+     "sensitivity. ICD-coded diagnoses are not a reference standard, so these metrics describe "
+     "concordance rather than diagnostic accuracy (Supplement Table S15).")
 
 h2("3.4 Secondary outcomes")
 body("**Treated bloodstream infection.** Events were sparse in the EEN arm (8/192, 4.2%): "
@@ -669,7 +670,13 @@ body("**Limitations.** Single center; sparse events in the EEN arm (8 treated bl
      "minority of brief perioperative prophylaxis; a sensitivity requiring a ≥3-day antibiotic "
      "course attenuated but preserved the direction of the comparison-A association. The doubly-robust AIPW estimate for comparison A preserved the protective direction but was wider and crossed the null (RR 0.83, 0.63–1.09), underscoring the imprecision of the underlying estimate; the complete-case sensitivity was severely underpowered (n=170, 14 EEN events) and is reported only for transparency, which is why median imputation with a missingness indicator was used as the primary approach. The primary "
      "endpoint also relies on culture data and is therefore not reproducible in datasets without "
-     "microbiology tables.")
+     "microbiology tables. The endpoint's concordance with ICD-coded infection was only modest "
+     "(κ = 0.215), indicating that the composite and administrative diagnoses capture partly "
+     "different events, so differential outcome misclassification cannot be excluded. We also "
+     "could not measure culture-sampling intensity; if early-fed patients were cultured more "
+     "frequently, this would tend to increase detected infections in the EEN arm (bias toward "
+     "harm), making the observed protective association less likely to be explained by "
+     "surveillance alone.")
 body("**Conclusions.** Earlier enteral nutrition after major abdominal surgery was associated "
      "with fewer antibiotic-treated infections among patients who were ultimately fed, with a "
      "consistent direction but imprecise magnitude. These findings support the safety and "
@@ -824,8 +831,9 @@ add_table(
 )
 table_note("SMD = standardized mean difference. CKD = chronic kidney disease; WBC = white blood "
            "cell count; MV = mechanical ventilation. Continuous covariates were median-imputed "
-           "with a missingness indicator for lactate; body-mass index is not shown (a fixed "
-           "characteristic, reported in Table S3).")
+           "with a missingness indicator for lactate; body-mass index (a fixed characteristic), "
+           "Glasgow Coma Scale, mean arterial pressure, FiO₂, and PaO₂ are not shown here (full "
+           "covariate balance in Table S3).")
 
 table_title("**Table 2.** Primary and key secondary outcomes (overlap weighting primary).")
 add_table(
@@ -997,6 +1005,12 @@ SUPP_FIGURES = [
 ]
 for caption, fname in SUPP_FIGURES:
     add_figure(caption, fname, width=5.5)
+
+h2("Additional files")
+para("**Additional File 1.** STROBE checklist for cohort studies (`STROBE_checklist.md`).",
+     space_after=4)
+para("**Additional File 2.** RECORD checklist (STROBE extension for routinely-collected health "
+     "data) (`RECORD_checklist.md`).", space_after=4)
 
 # ============================================================================
 # Fill word count

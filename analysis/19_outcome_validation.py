@@ -83,6 +83,13 @@ def main():
                  "antibiotic), so results are reported as concordance rather than as "
                  "sensitivity/specificity against truth.\n")
 
+    lines.append("\n## ICD code lists used\n")
+    lines.append("- **ICD sepsis/bacteraemia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, "
+                 "`R78.8`; ICD-9 `038*`, `99591`, `99592`, `78552`.\n")
+    lines.append("- **ICD any matching-site infection (broad):** sepsis list above plus ICD-10 "
+                 "`J12*`–`J18*`, `K65*`, `K63.0`, `K75.0`, `T81.4*`, `L02*`; ICD-9 `481`, `482`, "
+                 "`483`, `485`, `486`, `567*`, `540.1`, `998.5*`.\n")
+
     for label, nice in [("sepsis", "ICD sepsis/bacteraemia"),
                         ("any_infection", "ICD any matching-site infection")]:
         tp = int(((d["infection_composite"] == 1) & (d[label] == 1)).sum())

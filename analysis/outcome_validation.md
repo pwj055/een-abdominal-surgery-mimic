@@ -3,6 +3,13 @@
 Cross-tabulation of the treated-infection composite (positive non-urine culture + systemic antibiotic) against ICD-coded infection/sepsis diagnoses recorded during the admission, as a zero-cost face validity check. Neither source is a gold standard (ICD codes are billing diagnoses and may be coded without a positive culture; the composite requires both a culture and an antibiotic), so results are reported as concordance rather than as sensitivity/specificity against truth.
 
 
+## ICD code lists used
+
+- **ICD sepsis/bacteraemia (narrow):** ICD-10 `A40*`, `A41*`, `R65.1`, `R65.2`, `R78.8`; ICD-9 `038*`, `99591`, `99592`, `78552`.
+
+- **ICD any matching-site infection (broad):** sepsis list above plus ICD-10 `J12*`–`J18*`, `K65*`, `K63.0`, `K75.0`, `T81.4*`, `L02*`; ICD-9 `481`, `482`, `483`, `485`, `486`, `567*`, `540.1`, `998.5*`.
+
+
 ## ICD sepsis/bacteraemia
 
 | composite \ ICD | ICD + | ICD − | total |
